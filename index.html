@@ -250,6 +250,16 @@ html.anim .hero-art.reveal.in { transform: none; }
 }
 .intro-inner { position: relative; }
 .intro-ring { position: absolute; top: 0; left: 50%; width: 168px; height: 168px; margin-left: -84px; border-radius: 50%; border: 1px solid #cdb9a3; opacity: 0; pointer-events: none; }
+/* 照片美化：米白紙框＋柔和陰影；主圖墊水彩、外描手繪拱形線 */
+.work { background: #fffdf9; padding: 6px 6px 2px; border-radius: 6px; box-shadow: 0 10px 26px -18px rgb(74 69 65 / .45); }
+.work img { border-radius: 3px; }
+.work figcaption { padding: 7px 4px 5px; }
+@media (max-width: 600px) { .work { padding: 3px; border-radius: 4px; } }
+.hero-frame { position: relative; isolation: isolate; }
+.hero-frame::before { content: ""; position: absolute; inset: -14% -16% -10% -14%; z-index: -1; background: url(wc/wc-sage.png) center / contain no-repeat; opacity: .9; }
+.hero-frame::after { content: ""; position: absolute; inset: -12px 12px 12px -12px; z-index: 1; pointer-events: none; border: 1.5px solid #bfa98f; border-radius: 999px 999px 30px 30px; filter: url(#rough); }
+.hero-art { box-shadow: 0 24px 50px -28px rgb(74 69 65 / .55); }
+@media (max-width: 820px) { .hero-frame { max-width: 420px; } }
 /* 開場動畫：小精靈彈出 → 輕飄 → 飛到導覽列 logo，2.4 秒內結束，點一下可跳過 */
 .intro { position: fixed; inset: 0; z-index: 100; background: #f8f5f0; display: grid; place-items: center; cursor: pointer; }
 .intro-inner { display: flex; flex-direction: column; align-items: center; gap: 20px; }
@@ -304,9 +314,9 @@ html.intro-on body { overflow: hidden; }
           <a class="btn ghost" href="#works">先看作品</a>
         </div>
       </div>
-      <figure class="hero-art" style="margin:0">
+      <div class="hero-frame"><figure class="hero-art" style="margin:0">
         <img src="img/07.jpg" alt="紫色洋桔梗配黃色文心蘭的情人節花束" width="900" height="1367">
-      </figure>
+      </figure></div>
     </div>
   </section>
 
