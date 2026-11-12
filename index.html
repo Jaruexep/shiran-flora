@@ -624,6 +624,19 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
 }
 /* 首頁大標加粗、拿掉逗號與花字前後空格（使用者 11/12） */
 .hero h1 { font-weight: 700; font-synthesis: weight; letter-spacing: .08em; }
+/* 服務改三格：鮮花花束、永生・乾燥花禮、人造花佈置（使用者 11/12：只接這三種，婚禮／開幕／課程拿掉） */
+.svc-list { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+.svc { border-right: 1px solid var(--line) !important; padding-left: 16px !important; padding-right: 16px !important; }
+.svc:last-child { border-right: 0 !important; }
+.svc { align-content: start; align-items: start; }
+.svc > div { align-self: start; }
+@media (max-width: 600px) {
+  .svc-list { grid-template-columns: 1fr !important; }
+  .svc { border-right: 0 !important; padding: 12px 8px !important; }
+  .svc p { font-size: .82rem; }
+  .svc h3 { font-size: 1rem; }
+}
+@media (max-width: 600px) and (max-height: 760px) { .svc { padding: 8px 8px !important; } .svc .svc-icon { width: 38px; height: 38px; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter><symbol id="d-owner" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M19 17c0-8 10-12 18-11c8 1 11 6 8 11c-8-2-18-2-26 0z"/><path pathLength="1" d="M39 6c1-3 5-3 6 0"/><path pathLength="1" d="M22 18c-2 6-1 12 4 15c4 2 9 1 12-2c2-3 3-8 2-13"/><path pathLength="1" d="M20 18c-4 6-3 13-6 19c-1 3 0 6-1 9"/><path pathLength="1" d="M45 17c3 6 2 13 5 19c1 3 0 6 1 8"/><path pathLength="1" d="M27 23q2-2 4 0"/><path pathLength="1" d="M34 23q2-2 4 0"/><path pathLength="1" d="M30 28q2 2 4 0"/><path pathLength="1" d="M24 34c-6 3-9 10-10 18l-1 10"/><path pathLength="1" d="M41 34c6 3 9 10 10 18l1 10"/><path pathLength="1" d="M25 46l7 15 7-15z"/><path pathLength="1" d="M18 45c4 4 8 5 12 4"/><path pathLength="1" d="M47 45c-4 4-8 5-12 4"/><circle pathLength="1" cx="28" cy="42" r="3.4"/><circle pathLength="1" cx="33.5" cy="38.5" r="3.6"/><circle pathLength="1" cx="39" cy="42" r="3.4"/><circle pathLength="1" cx="31" cy="44.5" r="2.2"/><circle pathLength="1" cx="36" cy="44.5" r="2.2"/></g></symbol><symbol id="d-sprig" viewBox="0 0 56 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M6 34C18 30 30 22 50 6"/><path pathLength="1" d="M16 30c-2-6 1-10 6-11 1 5-2 9-6 11z"/><path pathLength="1" d="M24 25c5-4 10-3 12 1-4 3-9 3-12-1z"/><path pathLength="1" d="M30 20c-1-6 3-10 8-10 0 5-3 8-8 10z"/><path pathLength="1" d="M38 14c5-2 9 0 10 3-4 2-8 1-10-3z"/><circle pathLength="1" cx="50" cy="6" r="2.2"/></g></symbol><symbol id="d-chat" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M12 8h38a7 7 0 0 1 7 7v15a7 7 0 0 1-7 7H28l-9 8v-8h-7a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7z"/><path pathLength="1" d="M31 29c-6-4-9-7-9-10a4 4 0 0 1 9-1 4 4 0 0 1 9 1c0 3-3 6-9 10z"/></g></symbol><symbol id="d-tulip" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M32 48V22"/><path pathLength="1" d="M24 10c0 8 3 12 8 12s8-4 8-12l-4 3-4-6-4 6z"/><path pathLength="1" d="M32 40c-6-1-11-5-13-11 6 0 11 4 13 11z"/><path pathLength="1" d="M32 34c5-1 9-5 11-10-5 0-9 4-11 10z"/><path pathLength="1" d="M12 14l2 2M50 12l-2 3M14 26h3"/></g></symbol><symbol id="d-cal" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><rect pathLength="1" x="12" y="10" width="40" height="36" rx="5"/><path pathLength="1" d="M12 20h40M22 6v8M42 6v8"/><path pathLength="1" d="M26 32l5 5 9-10"/></g></symbol><symbol id="d-bouquet" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M20 22l12 26 12-26z"/><circle pathLength="1" cx="24" cy="16" r="5"/><circle pathLength="1" cx="34" cy="11" r="5"/><circle pathLength="1" cx="42" cy="18" r="4.5"/><path pathLength="1" d="M29 34c-5 1-8 4-8 6M35 34c5 1 8 4 8 6"/></g></symbol></defs></svg>
@@ -647,7 +660,6 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
       <li><a href="#services">服務項目</a></li>
       <li><a href="#works">作品</a></li>
       <li><a href="#process">怎麼訂</a></li>
-      <li><a href="#classes">課程</a></li>
       <li><a href="#faq">常見問題</a></li>
     </ul></nav>
     <a class="btn nav-cta" href="#contact">預約訂花</a>
@@ -689,14 +701,13 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
   <section class="services" id="services">
     <div class="wrap">
       <div class="sec-head">
-        <div><img class="ipaint" src="wc/i-sprig.webp" alt="" width="64" height="64" decoding="async"><p class="eyebrow">What we make</p><h2>可以幫你做的花</h2><p class="kinds">鮮花花束・永生乾燥花禮・人造花佈置</p></div>
+        <div><img class="ipaint" src="wc/i-sprig.webp" alt="" width="64" height="64" decoding="async"><p class="eyebrow">What we make</p><h2>可以幫你做的花</h2></div>
         <p class="custom">什麼都能客製，私訊告訴我預算和色系就好。<span class="m-hide">每一束都是接單後才去挑花，會跟照片有一點不一樣。</span></p>
       </div>
       <div class="svc-list">
-        <article class="svc"><img class="svc-icon" src="wc/i-bouquet.webp" alt="水彩手繪的花束小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>花束訂製</h3><p>生日、紀念日、告白、畢業。說預算和喜歡的顏色就好，不用懂花名。</p><p class="price">NT$&nbsp;1,200&nbsp;起<span class="todo">價格待確認</span></p></div></article>
-        <article class="svc"><img class="svc-icon" src="wc/i-svc-bridal.webp" alt="水彩手繪的新娘捧花小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>新娘捧花・婚禮佈置</h3><p>捧花、胸花、手腕花，到簽到桌和主桌花。先約一次討論，看你的婚紗和場地再配色。</p><p class="price">捧花&nbsp;NT$&nbsp;3,500&nbsp;起<span class="todo">價格待確認</span></p></div></article>
-        <article class="svc"><img class="svc-icon" src="wc/i-svc-pot.webp" alt="水彩手繪的開幕盆花小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>開幕・祝賀花禮</h3><p>盆花、桌花、落地花架，可以附賀卡和署名立牌，準時送到店門口。</p><p class="price">NT$&nbsp;2,000&nbsp;起<span class="todo">價格待確認</span></p></div></article>
-        <article class="svc"><img class="svc-icon" src="wc/i-svc-tools.webp" alt="水彩手繪的花剪與鬱金香小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>花藝課程</h3><p>一次一束，從整理花材到綁好帶回家。沒碰過花也可以來，兩三個朋友一起報更好玩。</p><p class="price">NT$&nbsp;1,800&nbsp;/&nbsp;堂起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><img class="svc-icon" src="wc/i-bouquet.webp" alt="水彩手繪的花束小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>鮮花花束</h3><p>生日、紀念日、告白、畢業。說預算和喜歡的顏色就好，不用懂花名。</p><p class="price">NT$&nbsp;1,200&nbsp;起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><img class="svc-icon" src="wc/i-svc-dried.webp" alt="水彩手繪的乾燥小盆花" width="96" height="96" loading="lazy" decoding="async"><div><h3>永生・乾燥花禮</h3><p>放得久，擺在桌上就是一份禮物，也可以做成小盆花。</p><p class="price">依大小報價</p></div></article>
+        <article class="svc"><img class="svc-icon" src="wc/i-svc-faux.webp" alt="水彩手繪的花瓶插花" width="96" height="96" loading="lazy" decoding="async"><div><h3>人造花佈置</h3><p>不用澆水、不會謝，適合店面或家裡長期擺。</p><p class="price">依大小報價</p></div></article>
       </div>
     </div>
   </section>
@@ -735,7 +746,7 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
     <div class="wrap">
       <div class="sec-head">
         <div><img class="ipaint" src="wc/i-sprig.webp" alt="" width="64" height="64" decoding="async"><p class="eyebrow">How to order</p><h2>訂一束花，四個步驟</h2></div>
-        <p>急單也可以接，請至少提前&nbsp;3&nbsp;天訂。婚禮花請提前&nbsp;1&nbsp;到&nbsp;2&nbsp;個月。<span class="todo">婚禮天數待確認</span></p>
+        <p>急單也可以接，請至少提前&nbsp;3&nbsp;天訂。</p>
       </div>
       <ol class="steps">
         <li><img class="ipaint step" src="wc/i-chat.webp" alt="" width="64" height="64" decoding="async"><h3>私訊告訴我</h3><p>送給誰、什麼場合、哪天要、預算多少。有喜歡的照片​也可以一起丟過來。</p></li>
@@ -762,20 +773,6 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
         <div class="bloom"><i style="background:#8fa79a"></i><span>尤加利葉<small>配葉，乾了也好看</small></span></div>
         <div class="bloom"><i style="background:#b04a5a"></i><span>火龍果玫瑰<small>聖誕前很搶手</small></span></div>
         <div class="bloom"><i style="background:#d9b26a"></i><span>小米果<small>秋天的金黃色</small></span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="classes" id="classes" style="padding-top:24px">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><img class="ipaint" src="wc/i-sprig.webp" alt="" width="64" height="64" decoding="async"><p class="eyebrow">Workshops</p><h2>一起來包花</h2></div>
-        <p>課程時間每月在 IG 公布，也可以約包班。<span class="todo">課程內容待確認</span></p>
-      </div>
-      <div class="grid">
-        <article class="class ring1"><img class="ipaint cls" src="wc/i-class-hand.webp" alt="" width="64" height="64" decoding="async"><p class="meta">單堂體驗 · 約 2 小時</p><h3>第一束手綁花</h3><p>學怎麼整理花材、螺旋手綁和包裝，做完直接帶走。</p><div class="row"><span>NT$ 1,800</span><span>2 人成班</span></div></article>
-        <article class="class ring2"><img class="ipaint cls" src="wc/i-class-wreath.webp" alt="" width="64" height="64" decoding="async"><p class="meta">季節限定 · 約 2.5 小時</p><h3>聖誕花圈</h3><p>用松枝、棉花和乾燥果實，做一個能掛到隔年的門圈。</p><div class="row"><span>NT$ 2,200</span><span>12 月開課</span></div></article>
-        <article class="class ring3"><img class="ipaint cls" src="wc/i-class-friends.webp" alt="" width="64" height="64" decoding="async"><p class="meta">包班 · 時間另約</p><h3>朋友・公司包班</h3><p>生日派對、員工活動、閨蜜聚會，人數和主題可以一起討論。</p><div class="row"><span>依人數報價</span><span>4 人以上</span></div></article>
       </div>
     </div>
   </section>
