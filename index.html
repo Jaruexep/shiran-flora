@@ -351,17 +351,56 @@ html { scroll-padding-top: var(--navh); scroll-snap-type: y mandatory; }
 main > section, footer { scroll-snap-align: start; scroll-snap-stop: normal; }
 footer { scroll-snap-align: end; }
 @media (max-width: 820px) { html { scroll-snap-type: y proximity; } }
-/* 開場動畫：小精靈彈出 → 輕飄 → 飛到導覽列 logo，2.4 秒內結束，點一下可跳過 */
+/* 開場動畫 v2：花田裡的小精靈看天空，風吹過、花瓣飄過、霧散開後進首頁（使用者 11/12 指定） */
+.intro { background: linear-gradient(#f6ece4 0%, #f3efe7 45%, #e9eee4 100%); display: block; overflow: hidden; }
+.intro .sun { position: absolute; left: 62%; top: 14%; width: 34vmin; height: 34vmin; border-radius: 50%; background: radial-gradient(circle, rgb(255 248 236 / .95), rgb(255 240 222 / 0) 70%); }
+.intro .field { position: absolute; inset: 0; width: 100%; height: 100%; }
+.intro .fl { transform-box: fill-box; transform-origin: 50% 100%; animation: idle 2.6s ease-in-out infinite alternate; }
+.intro.wind .fl { animation: gust 1.7s cubic-bezier(.3,0,.3,1) both; }
+.intro .fl.b { animation-delay: -.6s; }
+.intro.wind .fl.b { animation-delay: .08s; }
+@keyframes idle { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+@keyframes gust { 0% { transform: rotate(0); } 30% { transform: rotate(16deg); } 55% { transform: rotate(6deg); } 75% { transform: rotate(11deg); } 100% { transform: rotate(3deg); } }
+.intro .sprite { transform-box: fill-box; transform-origin: 50% 100%; animation: breath 2.4s ease-in-out infinite; }
+@keyframes breath { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.025); } }
+.intro .sprout { transform-box: fill-box; transform-origin: 50% 100%; animation: sproutIdle 2s ease-in-out infinite alternate; }
+.intro.wind .sprout { animation: sproutGust 1.7s ease-in-out both; }
+@keyframes sproutIdle { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+@keyframes sproutGust { 0% { transform: rotate(0); } 25% { transform: rotate(22deg); } 45% { transform: rotate(8deg); } 65% { transform: rotate(18deg); } 100% { transform: rotate(6deg); } }
+.intro .pupil { animation: lookup 3s ease-in-out both; }
+@keyframes lookup { 0% { transform: translate(0, 3px); } 30%, 100% { transform: translate(1px, -3px); } }
+.intro .petal-f { position: absolute; left: -6vw; width: 14px; height: 10px; border-radius: 80% 0 80% 0; opacity: 0; }
+.intro .mist { position: absolute; width: 90vmax; height: 60vmax; border-radius: 50%; background: radial-gradient(closest-side, rgb(250 247 242 / .95), rgb(250 247 242 / 0)); filter: blur(20px); opacity: 0; pointer-events: none; }
+.intro .tag { position: absolute; left: 0; right: 0; top: 18%; text-align: center; font-family: var(--f-head); color: #6e645b; letter-spacing: .3em; font-size: clamp(1rem, 2.4vw, 1.3rem); opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .intro .fl, .intro .sprite, .intro .sprout, .intro .pupil { animation: none !important; } }
+/* 舊版開場樣式（保留給點擊跳過時的共用規則） */
 .intro { position: fixed; inset: 0; z-index: 100; background: #f8f5f0; display: grid; place-items: center; cursor: pointer; }
 .intro-inner { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .intro-logo { width: 168px; height: 168px; border-radius: 50%; display: block; opacity: 0; }
 .intro-line { font-family: var(--f-head); color: #6e645b; font-size: 1.1rem; letter-spacing: .22em; opacity: 0; }
 html.intro-on body { overflow: hidden; }
+#intro { background: linear-gradient(#f6ece4 0%, #f3efe7 45%, #e9eee4 100%); display: block; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter><symbol id="d-sprig" viewBox="0 0 56 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M6 34C18 30 30 22 50 6"/><path pathLength="1" d="M16 30c-2-6 1-10 6-11 1 5-2 9-6 11z"/><path pathLength="1" d="M24 25c5-4 10-3 12 1-4 3-9 3-12-1z"/><path pathLength="1" d="M30 20c-1-6 3-10 8-10 0 5-3 8-8 10z"/><path pathLength="1" d="M38 14c5-2 9 0 10 3-4 2-8 1-10-3z"/><circle pathLength="1" cx="50" cy="6" r="2.2"/></g></symbol><symbol id="d-chat" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M12 8h38a7 7 0 0 1 7 7v15a7 7 0 0 1-7 7H28l-9 8v-8h-7a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7z"/><path pathLength="1" d="M31 29c-6-4-9-7-9-10a4 4 0 0 1 9-1 4 4 0 0 1 9 1c0 3-3 6-9 10z"/></g></symbol><symbol id="d-tulip" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M32 48V22"/><path pathLength="1" d="M24 10c0 8 3 12 8 12s8-4 8-12l-4 3-4-6-4 6z"/><path pathLength="1" d="M32 40c-6-1-11-5-13-11 6 0 11 4 13 11z"/><path pathLength="1" d="M32 34c5-1 9-5 11-10-5 0-9 4-11 10z"/><path pathLength="1" d="M12 14l2 2M50 12l-2 3M14 26h3"/></g></symbol><symbol id="d-cal" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><rect pathLength="1" x="12" y="10" width="40" height="36" rx="5"/><path pathLength="1" d="M12 20h40M22 6v8M42 6v8"/><path pathLength="1" d="M26 32l5 5 9-10"/></g></symbol><symbol id="d-bouquet" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M20 22l12 26 12-26z"/><circle pathLength="1" cx="24" cy="16" r="5"/><circle pathLength="1" cx="34" cy="11" r="5"/><circle pathLength="1" cx="42" cy="18" r="4.5"/><path pathLength="1" d="M29 34c-5 1-8 4-8 6M35 34c5 1 8 4 8 6"/></g></symbol></defs></svg>
 <div class="ambient" aria-hidden="true"><span class="wc a"></span><span class="wc b"></span><span class="wc c"></span><span class="wc d"></span><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg></div>
-<div class="intro" id="intro" aria-hidden="true"><div class="intro-inner"><span class="intro-ring"></span><img class="intro-logo" src="ig/avatar.jpg" alt="" width="168" height="168"><p class="intro-line">一花一苒　為時光留一束花</p></div></div>
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="sun"></div>
+  <p class="tag">一花一苒　為時光留一束花</p>
+  <svg class="field" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMax slice">
+    <path d="M0 470C180 420 340 440 520 430S860 400 1000 440V600H0Z" fill="#dfe6d9"/>
+    <path d="M0 520C200 480 420 500 620 490S900 470 1000 500V600H0Z" fill="#e7dccd"/>
+    <g id="field-back"></g>
+    <g transform="translate(428 392) scale(1.2)"><g class="sprite">
+      <g class="sprout"><path d="M60 46C60 36 61 28 64 20" fill="none" stroke="#748979" stroke-width="5" stroke-linecap="round"/><path d="M64 22C70 8 86 4 98 8C94 20 80 28 64 22Z" fill="#748979"/><path d="M62 30C54 20 40 18 32 24C38 34 52 36 62 30Z" fill="#748979"/></g>
+      <path d="M18 128C18 76 36 46 60 46C84 46 102 76 102 128Q93 118 81 128Q70 118 60 128Q50 118 39 128Q28 118 18 128Z" fill="#748979"/>
+      <circle cx="46" cy="80" r="12" fill="#f8f5f0"/><circle cx="74" cy="80" r="12" fill="#f8f5f0"/>
+      <circle class="pupil" cx="46" cy="80" r="5.5" fill="#4f5f53"/><circle class="pupil" cx="74" cy="80" r="5.5" fill="#4f5f53"/>
+    </g></g>
+    <g id="field-front"></g>
+  </svg>
+  <div class="mist m1"></div><div class="mist m2"></div><div class="mist m3"></div>
+</div>
 
 <header class="nav">
   <div class="wrap">
@@ -666,34 +705,67 @@ html.intro-on body { overflow: hidden; }
 <script>
 (function () {
   const intro = document.getElementById("intro"); if (!intro) return;
-  const root = document.documentElement, logo = intro.querySelector(".intro-logo"), line = intro.querySelector(".intro-line");
+  const root = document.documentElement;
   const done = () => { intro.remove(); root.classList.remove("intro-on"); if (window.shiranReveal) { window.shiranReveal(); window.shiranReveal = null; } };
   if (!intro.animate) { done(); return; }
   root.classList.add("intro-on");
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    logo.style.opacity = 1; line.style.opacity = 1;
-    intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, delay: 700, fill: "forwards" }).onfinish = done;
-    return;
+  // 花田：後排小花、前排大花（裝飾用，隨機但固定種子）
+  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const COLORS = ["#f0c4c2", "#f6e1c8", "#e8b9c4", "#f3d7a6", "#ffffff", "#d9c3e3", "#f4cfc0"];
+  const NS = "http://www.w3.org/2000/svg";
+  function flower(layer, x, y, size, back) {
+    const g = document.createElementNS(NS, "g"); g.setAttribute("class", "fl" + (back ? " b" : ""));
+    const c = COLORS[Math.floor(rnd() * COLORS.length)], h = size * (2.2 + rnd() * 1.2);
+    g.innerHTML = `<path d="M${x} ${y}q${(rnd() - .5) * 8} ${-h / 2} 0 ${-h}" stroke="#9fb3a2" stroke-width="${back ? 1.4 : 2.2}" fill="none" stroke-linecap="round"/>` +
+      `<path d="M${x} ${y - h * .45}q${size * .9} ${-size * .5} ${size * 1.3} ${-size * .2}q${-size * .6} ${size * .6} ${-size * 1.3} ${size * .2}z" fill="#b5c6b6"/>` +
+      [0, 72, 144, 216, 288].map(a => `<ellipse cx="${x}" cy="${y - h - size * .55}" rx="${size * .38}" ry="${size * .6}" fill="${c}" transform="rotate(${a + rnd() * 20} ${x} ${y - h})"/>`).join("") +
+      `<circle cx="${x}" cy="${y - h}" r="${size * .28}" fill="#e9c46a"/>`;
+    layer.appendChild(g);
   }
+  const back = document.getElementById("field-back"), front = document.getElementById("field-front");
+  for (let i = 0; i < 46; i++) flower(back, rnd() * 1000, 470 + rnd() * 50, 5 + rnd() * 4, true);
+  for (let i = 0; i < 30; i++) { const x = rnd() * 1000; if (x > 455 && x < 545 && rnd() < .7) continue; flower(front, x, 560 + rnd() * 50, 9 + rnd() * 7, false); }
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tag = intro.querySelector(".tag");
+  if (reduce) { tag.style.opacity = 1; intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 900, fill: "forwards" }).onfinish = done; return; }
   const ease = "cubic-bezier(.16,1,.3,1)";
-  logo.animate([{ transform: "scale(.72)", opacity: 0, filter: "blur(14px)" }, { transform: "scale(1)", opacity: 1, filter: "blur(0)" }], { duration: 900, easing: ease, fill: "both" });
-  logo.animate([{ translate: "0 0" }, { translate: "0 -8px" }, { translate: "0 0" }], { duration: 1100, delay: 700, easing: "ease-in-out" });
-  intro.querySelector(".intro-ring").animate([{ transform: "scale(.6)", opacity: .6 }, { transform: "scale(1.9)", opacity: 0 }], { duration: 1400, delay: 250, easing: ease, fill: "both" });
-  line.animate([{ opacity: 0, letterSpacing: ".6em", filter: "blur(4px)" }, { opacity: 1, letterSpacing: ".22em", filter: "blur(0)" }], { duration: 1000, delay: 450, easing: ease, fill: "forwards" });
+  intro.querySelectorAll(".field, .sun").forEach(el => el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500, fill: "both" }));
+  tag.animate([{ opacity: 0, letterSpacing: ".6em", filter: "blur(4px)" }, { opacity: 1, letterSpacing: ".3em", filter: "blur(0)" }], { duration: 900, delay: 300, easing: ease, fill: "forwards" });
+  // 風：0.6 秒吹過來
+  const tWind = setTimeout(() => intro.classList.add("wind"), 600);
+  // 花瓣被風帶過畫面
+  const PC = ["#f0c4c2", "#f6e1c8", "#e8b9c4", "#ffffff", "#f4cfc0"];
+  for (let i = 0; i < 16; i++) {
+    const p = document.createElement("i"); p.className = "petal-f"; p.style.top = (22 + rnd() * 60) + "%"; p.style.background = PC[i % PC.length];
+    const sc = .7 + rnd() * .8; intro.appendChild(p);
+    const dy = (rnd() - .5) * 140;
+    p.animate([
+      { opacity: 0, transform: `translate(0,0) rotate(0deg) scale(${sc})` },
+      { opacity: .95, offset: .15 },
+      { opacity: .9, transform: `translate(55vw, ${dy * .5 - 30}px) rotate(260deg) scale(${sc})`, offset: .55 },
+      { opacity: 0, transform: `translate(118vw, ${dy}px) rotate(540deg) scale(${sc})` }
+    ], { duration: 1300 + rnd() * 600, delay: 850 + rnd() * 600, easing: "cubic-bezier(.4,.1,.6,1)", fill: "both" });
+  }
+  // 霧：從兩側湧進來，再散開
+  const mists = intro.querySelectorAll(".mist");
+  const pos = [["-30vmax", "30%", "-25vw"], ["40%", "45%", "25vw"], ["10%", "65%", "-10vw"]];
+  mists.forEach((m, i) => {
+    m.style.left = pos[i][0]; m.style.top = pos[i][1];
+    m.animate([
+      { opacity: 0, transform: `translateX(${pos[i][2]}) scale(.8)` },
+      { opacity: .95, transform: "translateX(0) scale(1.15)", offset: .55 },
+      { opacity: 0, transform: "translateX(0) scale(1.9)" }
+    ], { duration: 1400, delay: 1500 + i * 80, easing: "ease-in-out", fill: "both" });
+  });
   let ended = false;
-  const fly = () => {
+  const finish = () => {
     if (ended) return; ended = true;
-    const t = document.querySelector(".logo img").getBoundingClientRect(), r = logo.getBoundingClientRect();
-    const dx = t.left + t.width / 2 - (r.left + r.width / 2), dy = t.top + t.height / 2 - (r.top + r.height / 2), k = t.width / r.width;
-    line.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: "forwards" });
-    logo.animate([{ transform: "none", opacity: 1 }, { transform: `translate(${dx}px, ${dy}px) scale(${k})`, opacity: 1 }], { duration: 750, easing: "cubic-bezier(.7,0,.2,1)", fill: "forwards" });
-    intro.animate([{ backgroundColor: "rgb(248 245 240 / 1)" }, { backgroundColor: "rgb(248 245 240 / 0)" }], { duration: 500, delay: 250, fill: "forwards" });
-    setTimeout(done, 800);
+    intro.animate([{ opacity: 1, filter: "blur(0)" }, { opacity: 0, filter: "blur(6px)" }], { duration: 600, easing: "ease-out", fill: "forwards" }).onfinish = done;
   };
-  const timer = setTimeout(fly, 1700);
+  const tEnd = setTimeout(finish, 2400);
   intro.addEventListener("click", () => {
-    if (ended) return; ended = true; clearTimeout(timer);
-    intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: "forwards" }).onfinish = done;
+    if (ended) return; ended = true; clearTimeout(tWind); clearTimeout(tEnd);
+    intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: "forwards" }).onfinish = done;
   });
 })();
 </script>
