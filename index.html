@@ -836,7 +836,7 @@ dialog.order { width: min(600px, calc(100vw - 24px)); }
       <label><span class="oq">哪天要？</span><input type="date" id="o-date"></label>
       <label><span class="oq">送給誰、什麼場合（選填）</span><input type="text" id="o-who" maxlength="40" placeholder="例如：媽媽生日"></label>
     </div>
-    <p class="onote">急單請至少提前&nbsp;3&nbsp;天訂。</p>
+    <p class="onote">請至少提前一週訂，當天算第&nbsp;1&nbsp;天。</p>
     <div class="opreview" id="o-msg" aria-live="polite"></div>
     <a class="btn lang-go" id="o-go" href="https://ig.me/m/shiran_floraflower" target="_blank" rel="noopener">複製訊息，打開 IG 私訊</a>
     <p class="omiss" id="o-miss" aria-live="polite"></p>
@@ -1143,7 +1143,7 @@ dialog.order { width: min(600px, calc(100vw - 24px)); }
   const dlg = document.getElementById("order"); if (!dlg) return;
   const OPT = {
     kind: ["鮮花花束", "永生・乾燥花禮", "人造花佈置"],
-    color: [["粉色系", "#eeb4bd"], ["白綠清新", "#cfdccb"], ["暖黃橘", "#f4c58a"], ["紫色系", "#c9b4dd"], ["紅色系", "#d9545e"], ["大地奶茶", "#cfb39a"], ["交給闆娘配", "conic-gradient(#eeb4bd, #f4c58a, #cfdccb, #c9b4dd, #eeb4bd)"]],
+    color: [["粉色系", "#eeb4bd"], ["白綠清新", "#cfdccb"], ["暖黃橘", "#f4c58a"], ["紫色系", "#c9b4dd"], ["藍色系", "#9db6dc"], ["紅色系", "#d9545e"], ["黑白灰（無色彩）", "linear-gradient(135deg, #ffffff 0 33%, #a7a7a7 33% 66%, #3d3d3d 66%)"], ["大地奶茶", "#cfb39a"], ["交給闆娘配", "conic-gradient(#eeb4bd, #f4c58a, #cfdccb, #c9b4dd, #eeb4bd)"]],
     budget: ["1,000 以下", "1,000～1,500", "1,500～2,000", "2,000～3,000", "3,000 以上"],
     get: ["自取", "外送（台中市區滿 $2000）"],
   };
@@ -1160,7 +1160,7 @@ dialog.order { width: min(600px, calc(100vw - 24px)); }
     });
   });
   const date = document.getElementById("o-date"), who = document.getElementById("o-who"), out = document.getElementById("o-msg"), go = document.getElementById("o-go"), done = document.getElementById("o-done");
-  const min = new Date(); min.setDate(min.getDate() + 3);
+  const min = new Date(); min.setDate(min.getDate() + 6);  // 最早一週後，當天算第 1 天（使用者 11/12）
   date.min = new Date(min.getTime() - min.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
   const blank = "＿＿";
   const msg = () => {
