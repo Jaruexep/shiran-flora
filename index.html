@@ -442,6 +442,110 @@ html.anim .owner-art.in .dot { opacity: .9; transform: none; transition-delay: .
 html.anim .svc .svc-icon { -webkit-mask: url(wc/wc-mask.png) center / 0% no-repeat; mask: url(wc/wc-mask.png) center / 0% no-repeat; transition: -webkit-mask-size 1.6s cubic-bezier(.3,0,.2,1) .3s, mask-size 1.6s cubic-bezier(.3,0,.2,1) .3s; }
 html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
 @media (prefers-reduced-motion: reduce) { .svc .svc-icon { animation: none; } html.anim .svc .svc-icon { -webkit-mask: none; mask: none; } }
+
+/* 闆娘水彩小圖示：水彩暈開出現、之後輕輕搖 */
+.owner-paint { display: block; width: 96px; height: 96px; margin: 0 auto 6px; transform-origin: 50% 95%; animation: sway 5.2s ease-in-out infinite; }
+html.anim .owner-paint { -webkit-mask: url(wc/wc-mask.png) center / 0% no-repeat; mask: url(wc/wc-mask.png) center / 0% no-repeat; transition: -webkit-mask-size 1.6s cubic-bezier(.3,0,.2,1) .2s, mask-size 1.6s cubic-bezier(.3,0,.2,1) .2s; }
+html.anim .in .owner-paint { -webkit-mask-size: 300%; mask-size: 300%; }
+.nav-cta { padding: .55em 1.2em; font-size: .9rem; white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .owner-paint { animation: none; } html.anim .owner-paint { -webkit-mask: none; mask: none; } }
+
+/* 一次一個畫面（使用者 11/12：往下滑手機也一樣，一個畫面只出現一個區塊）
+   每個區塊至少佔滿畫面（扣導覽列），內容上下置中；全尺寸強制吸附、每次只走一格 */
+html { scroll-snap-type: y mandatory; }
+main > section { min-height: calc(100svh - var(--navh)); display: flex; flex-direction: column; justify-content: center; padding-block: 40px !important; scroll-snap-align: start; scroll-snap-stop: always; }
+main > section > .wrap { width: 100%; }
+footer { scroll-snap-align: end; }
+@media (max-width: 820px) {
+  html { scroll-snap-type: y mandatory; }
+  main > section { padding-block: 24px !important; }
+  .sec-head { margin-bottom: 18px; gap: 6px; }
+  .sec-head h2 { font-size: 1.45rem; }
+  .sec-head p, .contact p { font-size: .92rem; }
+  .doodle { width: 44px; height: 32px; margin-bottom: 4px; }
+  /* 開場：主圖縮小，跟文字一起塞進一個畫面 */
+  .hero .wrap { gap: 16px; padding-block: 0; }
+  .hero h1 { font-size: 1.75rem; margin: 6px 0 10px; }
+  .hero p.lead { font-size: .92rem; }
+  .hero .actions { margin-top: 14px; }
+  .hero-frame { max-width: 220px; }
+  .hero-art { max-height: 34svh; }
+  /* 服務：2×2 */
+  .svc-list { grid-template-columns: 1fr 1fr; }
+  .svc { padding: 14px 8px !important; gap: 4px; border-right: 0; }
+  .svc:nth-child(odd) { border-right: 1px solid var(--line); }
+  .svc .svc-icon { width: 58px; height: 58px; }
+  .svc h3 { font-size: 1rem; }
+  .svc p { font-size: .8rem; margin-top: 2px; line-height: 1.55; }
+  .svc .price { font-size: .78rem; margin-top: 4px; }
+  /* 作品：12 張九宮格本來就塞得下；說明字藏起來 */
+  /* 步驟：2×2 */
+  .steps { grid-template-columns: 1fr 1fr; gap: 14px 10px; }
+  .steps .doodle { width: 48px; height: 38px; margin-bottom: 2px; }
+  .steps h3 { font-size: .95rem; }
+  .steps p { font-size: .8rem; line-height: 1.55; }
+  .steps li::before { margin-bottom: 2px; }
+  /* 當季花材 */
+  .season-list { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .bloom { padding: 6px 8px; }
+  /* 課程卡片變緊湊 */
+  .classes .grid { gap: 10px; }
+  .class { padding: 12px 14px; gap: 4px; }
+  .class p { font-size: .82rem; }
+  .class .row { padding-top: 6px; font-size: .8rem; }
+  .faq details { padding: 12px 0; }
+  .nav-cta { padding: .45em .9em; font-size: .82rem; }
+}
+
+/* 一區一畫面：塞不下的區塊重新排 */
+.hero-frame { width: min(100%, calc((100svh - var(--navh) - 96px) * .8)); }
+@media (min-width: 821px) {
+  .svc-list { grid-template-columns: repeat(4, 1fr); }
+  .svc { border-right: 1px solid var(--line) !important; padding: 24px 16px !important; }
+  .svc:last-child { border-right: 0 !important; }
+  .svc .svc-icon { width: 80px; height: 80px; }
+  .gallery { grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .work figcaption span { display: none; }
+}
+@media (max-width: 820px) {
+  .gallery { grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .services .sec-head p, .classes .sec-head p { display: none; }
+  .svc .svc-icon { width: 50px; height: 50px; }
+  .class p { display: none; }
+  .gallery-note { margin-top: 10px; font-size: .8rem; }
+}
+
+.hero .wrap { padding-block: 0 !important; }
+.gallery-note { display: none; }
+#works .sec-head { margin-bottom: 14px; }
+@media (max-width: 820px) { .chips { gap: 5px; } .chip { font-size: .78rem; padding: .25em .75em; } }
+
+/* 開場：花束照當淡化背景，只留置中文字（使用者 11/12） */
+.hero-frame { display: none !important; }
+.hero { position: relative; isolation: isolate; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgb(248 245 240 / .80), rgb(248 245 240 / .72) 50%, rgb(248 245 240 / .86)), url(img/07.jpg) center 40% / cover no-repeat; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at center, rgb(248 245 240 / .55), transparent 70%); }
+.hero .wrap { grid-template-columns: 1fr !important; }
+
+@media (max-width: 820px) { .svc .price .todo { display: table; margin: 3px auto 0; } }
+
+.lang-tip { font-size: .85rem; color: #8a5a4f; background: rgb(240 198 192 / .25); border-radius: 12px; padding: 10px 14px; margin: 2px 0 0; text-align: left; }
+.moods .mood { font-size: .86rem; padding: .4em .9em; }
+
+/* 背景音樂喇叭（IG 按鈕上方；使用者 11/12） */
+.sound-float { position: fixed; z-index: 30; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(max(20px, calc(env(safe-area-inset-bottom, 0px) + 16px)) + 60px); width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--btn); color: var(--leaf); border: 1px solid #ddd0bf; box-shadow: 0 6px 18px rgb(74 69 65 / .14); cursor: pointer; padding: 0; transition: transform .25s ease, background .25s ease; }
+.sound-float[hidden] { display: none; }
+.sound-float:hover { background: #fff; transform: scale(1.08); }
+.sound-float svg { width: 22px; height: 22px; overflow: visible; }
+.sound-float .mute { opacity: 0; }
+.sound-float[aria-pressed="false"] .wave { opacity: 0; }
+.sound-float[aria-pressed="false"] .mute { opacity: 1; }
+.sound-float[aria-pressed="true"].playing .w1 { animation: wavepulse 1.6s ease-in-out infinite; }
+.sound-float[aria-pressed="true"].playing .w2 { animation: wavepulse 1.6s ease-in-out .3s infinite; }
+@keyframes wavepulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+.bgm-credit { display: block; margin-top: 4px; font-size: .72rem; }
+.bgm-credit a { color: inherit; }
+@media (prefers-reduced-motion: reduce) { .sound-float .wave { animation: none !important; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter><symbol id="d-owner" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M19 17c0-8 10-12 18-11c8 1 11 6 8 11c-8-2-18-2-26 0z"/><path pathLength="1" d="M39 6c1-3 5-3 6 0"/><path pathLength="1" d="M22 18c-2 6-1 12 4 15c4 2 9 1 12-2c2-3 3-8 2-13"/><path pathLength="1" d="M20 18c-4 6-3 13-6 19c-1 3 0 6-1 9"/><path pathLength="1" d="M45 17c3 6 2 13 5 19c1 3 0 6 1 8"/><path pathLength="1" d="M27 23q2-2 4 0"/><path pathLength="1" d="M34 23q2-2 4 0"/><path pathLength="1" d="M30 28q2 2 4 0"/><path pathLength="1" d="M24 34c-6 3-9 10-10 18l-1 10"/><path pathLength="1" d="M41 34c6 3 9 10 10 18l1 10"/><path pathLength="1" d="M25 46l7 15 7-15z"/><path pathLength="1" d="M18 45c4 4 8 5 12 4"/><path pathLength="1" d="M47 45c-4 4-8 5-12 4"/><circle pathLength="1" cx="28" cy="42" r="3.4"/><circle pathLength="1" cx="33.5" cy="38.5" r="3.6"/><circle pathLength="1" cx="39" cy="42" r="3.4"/><circle pathLength="1" cx="31" cy="44.5" r="2.2"/><circle pathLength="1" cx="36" cy="44.5" r="2.2"/></g></symbol><symbol id="d-sprig" viewBox="0 0 56 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M6 34C18 30 30 22 50 6"/><path pathLength="1" d="M16 30c-2-6 1-10 6-11 1 5-2 9-6 11z"/><path pathLength="1" d="M24 25c5-4 10-3 12 1-4 3-9 3-12-1z"/><path pathLength="1" d="M30 20c-1-6 3-10 8-10 0 5-3 8-8 10z"/><path pathLength="1" d="M38 14c5-2 9 0 10 3-4 2-8 1-10-3z"/><circle pathLength="1" cx="50" cy="6" r="2.2"/></g></symbol><symbol id="d-chat" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M12 8h38a7 7 0 0 1 7 7v15a7 7 0 0 1-7 7H28l-9 8v-8h-7a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7z"/><path pathLength="1" d="M31 29c-6-4-9-7-9-10a4 4 0 0 1 9-1 4 4 0 0 1 9 1c0 3-3 6-9 10z"/></g></symbol><symbol id="d-tulip" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M32 48V22"/><path pathLength="1" d="M24 10c0 8 3 12 8 12s8-4 8-12l-4 3-4-6-4 6z"/><path pathLength="1" d="M32 40c-6-1-11-5-13-11 6 0 11 4 13 11z"/><path pathLength="1" d="M32 34c5-1 9-5 11-10-5 0-9 4-11 10z"/><path pathLength="1" d="M12 14l2 2M50 12l-2 3M14 26h3"/></g></symbol><symbol id="d-cal" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><rect pathLength="1" x="12" y="10" width="40" height="36" rx="5"/><path pathLength="1" d="M12 20h40M22 6v8M42 6v8"/><path pathLength="1" d="M26 32l5 5 9-10"/></g></symbol><symbol id="d-bouquet" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M20 22l12 26 12-26z"/><circle pathLength="1" cx="24" cy="16" r="5"/><circle pathLength="1" cx="34" cy="11" r="5"/><circle pathLength="1" cx="42" cy="18" r="4.5"/><path pathLength="1" d="M29 34c-5 1-8 4-8 6M35 34c5 1 8 4 8 6"/></g></symbol></defs></svg>
@@ -461,12 +565,13 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
   <div class="wrap">
     <a class="logo" href="#top"><img src="ig/avatar.jpg" alt="" width="40" height="40">蒔苒花藝<small>SHI RAN</small></a>
     <nav aria-label="主選單"><ul>
-      <li><a href="#services">服務</a></li>
+      <li><a href="#services">服務項目</a></li>
       <li><a href="#works">作品</a></li>
       <li><a href="#process">怎麼訂</a></li>
       <li><a href="#classes">課程</a></li>
       <li><a href="#faq">常見問題</a></li>
     </ul></nav>
+    <a class="btn nav-cta" href="#contact">預約訂花</a>
   </div>
 </header>
 
@@ -474,7 +579,7 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
   <section class="contact" id="contact">
     <div class="wrap">
       <div>
-        <svg class="doodle owner-doodle" role="img" aria-label="闆娘抱著一束花的手繪小圖"><use href="#d-owner"/></svg><p class="eyebrow">Get in touch</p>
+        <img class="owner-paint" src="wc/owner-icon.webp" alt="闆娘抱著一束花的水彩小圖" width="96" height="96" decoding="async"><p class="eyebrow">Get in touch</p>
         <h2>想送花給誰？跟我說說</h2>
         <p>最快的方式是 IG 私訊，通常當天會回。說一句「我想訂花」就可以開始。</p>
         <div class="actions-row">
@@ -515,10 +620,10 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
         <p>每一束都是接單後才去挑花，所以會跟照片有一點不一樣，這是花本來的樣子。</p>
       </div>
       <div class="svc-list">
-        <article class="svc"><img class="svc-icon" src="wc/icon-1.webp" alt="水彩手繪的花束小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>花束訂製</h3><p>生日、紀念日、告白、畢業。說預算和喜歡的顏色就好，不用懂花名。</p><p class="price">NT$ 1,200 起<span class="todo">價格待確認</span></p></div></article>
-        <article class="svc"><img class="svc-icon" src="wc/icon-2.webp" alt="水彩手繪的新娘捧花小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>新娘捧花・婚禮佈置</h3><p>捧花、胸花、手腕花，到簽到桌和主桌花。先約一次討論，看你的婚紗和場地再配色。</p><p class="price">捧花 NT$ 3,500 起<span class="todo">價格待確認</span></p></div></article>
-        <article class="svc"><img class="svc-icon" src="wc/icon-3.webp" alt="水彩手繪的開幕盆花小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>開幕・祝賀花禮</h3><p>盆花、桌花、落地花架，可以附賀卡和署名立牌，準時送到店門口。</p><p class="price">NT$ 2,000 起<span class="todo">價格待確認</span></p></div></article>
-        <article class="svc"><img class="svc-icon" src="wc/icon-4.webp" alt="水彩手繪的花剪與鬱金香小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>花藝課程</h3><p>一次一束，從整理花材到綁好帶回家。沒碰過花也可以來，兩三個朋友一起報更好玩。</p><p class="price">NT$ 1,800 / 堂起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><img class="svc-icon" src="wc/icon-1.webp" alt="水彩手繪的花束小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>花束訂製</h3><p>生日、紀念日、告白、畢業。說預算和喜歡的顏色就好，不用懂花名。</p><p class="price">NT$&nbsp;1,200&nbsp;起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><img class="svc-icon" src="wc/icon-2.webp" alt="水彩手繪的新娘捧花小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>新娘捧花・婚禮佈置</h3><p>捧花、胸花、手腕花，到簽到桌和主桌花。先約一次討論，看你的婚紗和場地再配色。</p><p class="price">捧花&nbsp;NT$&nbsp;3,500&nbsp;起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><img class="svc-icon" src="wc/icon-3.webp" alt="水彩手繪的開幕盆花小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>開幕・祝賀花禮</h3><p>盆花、桌花、落地花架，可以附賀卡和署名立牌，準時送到店門口。</p><p class="price">NT$&nbsp;2,000&nbsp;起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><img class="svc-icon" src="wc/icon-4.webp" alt="水彩手繪的花剪與鬱金香小圖" width="96" height="96" loading="lazy" decoding="async"><div><h3>花藝課程</h3><p>一次一束，從整理花材到綁好帶回家。沒碰過花也可以來，兩三個朋友一起報更好玩。</p><p class="price">NT$&nbsp;1,800&nbsp;/&nbsp;堂起<span class="todo">價格待確認</span></p></div></article>
       </div>
     </div>
   </section>
@@ -560,8 +665,8 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
         <p>急單也可以接，請至少提前&nbsp;3&nbsp;天訂。婚禮花請提前&nbsp;1&nbsp;到&nbsp;2&nbsp;個月。<span class="todo">婚禮天數待確認</span></p>
       </div>
       <ol class="steps">
-        <li><svg class="doodle" aria-hidden="true"><use href="#d-chat"/></svg><h3>私訊告訴我</h3><p>送給誰、什麼場合、哪天要、預算多少。有喜歡的照片也可以一起丟過來。</p></li>
-        <li><svg class="doodle" aria-hidden="true"><use href="#d-tulip"/></svg><h3>確認花材和配色</h3><p>我會依當季的花回你一個建議，顏色或大小想改都可以再調。</p></li>
+        <li><svg class="doodle" aria-hidden="true"><use href="#d-chat"/></svg><h3>私訊告訴我</h3><p>送給誰、什麼場合、哪天要、預算多少。有喜歡的照片​也可以一起丟過來。</p></li>
+        <li><svg class="doodle" aria-hidden="true"><use href="#d-tulip"/></svg><h3>確認花材和配色</h3><p>我會依當季的花​回你一個建議，顏色或大小​想改都可以再調。</p></li>
         <li><svg class="doodle" aria-hidden="true"><use href="#d-cal"/></svg><h3>付訂金保留日期</h3><p>收到訂金才算排進日期，節日前名額有限，早點說比較保險。</p></li>
         <li><svg class="doodle" aria-hidden="true"><use href="#d-bouquet"/></svg><h3>取花或外送</h3><p>到工作室自取，或安排外送到指定地點，送達前會拍照給你看。</p></li>
       </ol>
@@ -613,6 +718,7 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
   </section>
 
 </main>
+<button class="sound-float" id="sound" type="button" aria-label="背景音樂：播放中，按一下靜音" aria-pressed="true" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path class="wave w1" d="M15.5 9.5a3.5 3.5 0 0 1 0 5"/><path class="wave w2" d="M18 7a7 7 0 0 1 0 10"/><path class="mute" d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
 <a class="ig-float" href="https://www.instagram.com/shiran_floraflower/" target="_blank" rel="noopener" aria-label="到 Instagram 看蒔苒花藝" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
 <dialog class="lang" id="lang" aria-labelledby="lang-title">
   <div class="lang-in">
@@ -626,7 +732,7 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
     <button class="btn lang-go" type="button" id="lang-go" hidden>複製這段話，去 IG 私訊</button>
   </div>
 </dialog>
-<footer><div class="wrap"><span>© 2026 蒔苒花藝 Shi Ran</span><a class="totop" href="#top" id="to-top">回到最上面 ↑</a><span>初版預覽，文字與價格以確認後為準</span></div></footer>
+<footer><div class="wrap"><span>© 2026 蒔苒花藝 Shi Ran</span><a class="totop" href="#top" id="to-top">回到最上面 ↑</a><span>初版預覽，文字與價格以確認後為準<small class="bgm-credit" id="bgm-credit" hidden></small></span></div></footer>
 
 <script>
 (function () {
@@ -746,6 +852,8 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
     });
   };
   const nav = document.querySelector("header.nav");
+  const setNavH = () => root.style.setProperty("--navh", nav.offsetHeight + "px");
+  setNavH(); window.addEventListener("resize", setNavH);
   const art = document.querySelector(".hero-art");
   let ticking = false;
   const onScroll = () => {
@@ -821,12 +929,17 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
   const dlg = document.getElementById("lang"); if (!dlg) return;
   const MOODS = [
     { k: "謝謝你", f: [["康乃馨", "感謝、溫暖的祝福", "#eab3b3"], ["洋桔梗", "真誠不變的心意", "#d9c3e3"], ["滿天星", "默默的陪伴", "#f1ece4"]] },
-    { k: "喜歡你", f: [["紅玫瑰", "熱烈的愛", "#b8434f"], ["粉玫瑰", "初戀、喜歡你", "#eeb4bd"], ["粉色鬱金香", "愛的告白", "#f2b8c6"]] },
+    { k: "告白", f: [["紅玫瑰", "熱烈的愛", "#b8434f"], ["粉玫瑰", "初戀、喜歡你", "#eeb4bd"], ["粉色鬱金香", "愛的告白", "#f2b8c6"]] },
+    { k: "求婚", f: [["紅玫瑰", "一心一意的愛", "#b8434f"], ["洋桔梗", "真誠不變的愛", "#d9c3e3"], ["滿天星", "真心陪伴", "#f1ece4"]] },
+    { k: "結婚祝福", f: [["百合", "百年好合", "#f6f1e6"], ["繡球花", "圓滿、團聚", "#b9c3e6"], ["粉玫瑰", "甜蜜的愛", "#eeb4bd"]] },
+    { k: "紀念日", f: [["粉玫瑰", "甜蜜的愛", "#eeb4bd"], ["洋桔梗", "真誠不變的愛", "#d9c3e3"], ["滿天星", "一直在身邊", "#f1ece4"]] },
     { k: "生日快樂", f: [["向日葵", "陽光、活力", "#f2c14e"], ["非洲菊", "有希望、快樂", "#f4a46a"], ["洋桔梗", "真誠的祝福", "#d9c3e3"]] },
+    { k: "母親節", f: [["粉色康乃馨", "感謝母愛", "#eeb4bd"], ["繡球花", "家庭圓滿", "#b9c3e6"], ["百合", "純潔的祝福", "#f6f1e6"]] },
     { k: "畢業加油", f: [["向日葵", "前途光明", "#f2c14e"], ["文心蘭", "快樂無憂", "#f3d250"], ["非洲菊", "積極向上", "#f4a46a"]] },
+    { k: "探病・早日康復", f: [["粉色康乃馨", "健康、溫暖的祝福", "#eeb4bd"], ["非洲菊", "有希望、加油", "#f4a46a"], ["洋桔梗", "真誠的關心", "#d9c3e3"]], note: "探病建議不送整盆的花，也避開香味太濃的花；有些病房不能放鮮花，送之前可以先問一下家屬或護理站。" },
     { k: "對不起", f: [["紫色風信子", "對不起、請原諒我", "#a993c9"], ["白色鬱金香", "請原諒、重新開始", "#f4f0e8"]] },
     { k: "想念你", f: [["勿忘我", "不要忘記我", "#8fa6d6"], ["紫羅蘭", "永恆的愛與思念", "#b79bd0"], ["滿天星", "一直放在心上", "#f1ece4"]] },
-    { k: "開幕祝賀", f: [["蝴蝶蘭", "幸福飛來", "#f0d9e6"], ["火鶴", "大展鴻圖", "#d9545e"], ["向日葵", "欣欣向榮", "#f2c14e"]] },
+    { k: "開業祝賀", f: [["蝴蝶蘭", "幸福飛來", "#f0d9e6"], ["火鶴", "大展鴻圖", "#d9545e"], ["向日葵", "欣欣向榮", "#f2c14e"]] },
   ];
   const moods = document.getElementById("moods"), blooms = document.getElementById("blooms"), go = document.getElementById("lang-go");
   let picked = null;
@@ -835,7 +948,8 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
     b.addEventListener("click", () => {
       picked = m;
       moods.querySelectorAll(".mood").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
-      blooms.innerHTML = m.f.map((x, i) => `<div class="lang-card" style="--d:${i * 0.08}s"><i class="dot" style="--c:${x[2]}"></i><div><b>${x[0]}</b><span>${x[1]}</span></div></div>`).join("");
+      blooms.innerHTML = m.f.map((x, i) => `<div class="lang-card" style="--d:${i * 0.08}s"><i class="dot" style="--c:${x[2]}"></i><div><b>${x[0]}</b><span>${x[1]}</span></div></div>`).join("")
+      if (m.note) blooms.insertAdjacentHTML("beforeend", `<p class="lang-tip">${m.note}</p>`);
       go.hidden = false;
     });
     moods.appendChild(b);
@@ -853,6 +967,51 @@ html.anim .svc.in .svc-icon { -webkit-mask-size: 300%; mask-size: 300%; }
     const done = () => { go.textContent = "已複製，貼到 IG 私訊就好"; setTimeout(() => go.textContent = "複製這段話，去 IG 私訊", 2400); jump(); };
     if (navigator.clipboard) navigator.clipboard.writeText(msg).then(done).catch(jump); else jump();
   });
+})();
+</script>
+
+<script>
+/* 背景音樂：瀏覽器不允許自動播有聲音的音樂，所以等訪客第一次點畫面、滑動或按鍵才淡入。
+   曲子設定在 BGM；空著時喇叭和出處都不顯示。訪客按靜音會記住（存在這台裝置）。 */
+(function () {
+  const BGM = { src: "", title: "", author: "", url: "" };  // 例：{ src: "audio/bgm.mp3", title: "曲名", author: "作者", url: "https://elements.envato.com/..." }
+  if (!BGM.src) return;
+  const btn = document.getElementById("sound"), credit = document.getElementById("bgm-credit");
+  btn.hidden = false;
+  credit.hidden = false;
+  credit.innerHTML = `背景音樂：<a href="${BGM.url}" target="_blank" rel="noopener">${BGM.title}</a>／${BGM.author}，來自 Envato Elements`;
+  const audio = new Audio(BGM.src); audio.loop = true; audio.preload = "none"; audio.volume = 0;
+  let muted = false; try { muted = localStorage.getItem("shiran-bgm") === "off"; } catch (e) {}
+  const TARGET = 0.25;
+  let fadeTimer;
+  const fadeTo = (v, ms, after) => {
+    clearInterval(fadeTimer);
+    const start = audio.volume, t0 = performance.now();
+    fadeTimer = setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / ms);
+      audio.volume = start + (v - start) * k;
+      if (k >= 1) { clearInterval(fadeTimer); after && after(); }
+    }, 40);
+  };
+  const setUI = () => {
+    btn.setAttribute("aria-pressed", muted ? "false" : "true");
+    btn.setAttribute("aria-label", muted ? "背景音樂：已靜音，按一下播放" : "背景音樂：播放中，按一下靜音");
+    btn.classList.toggle("playing", !muted && !audio.paused);
+  };
+  const play = () => { audio.play().then(() => { fadeTo(TARGET, 2500); setUI(); }).catch(() => {}); };
+  const stop = () => fadeTo(0, 600, () => { audio.pause(); setUI(); });
+  setUI();
+  // 第一次互動才開始（點、滑、按鍵）
+  const first = () => { ["pointerdown", "keydown", "wheel", "touchstart"].forEach(t => removeEventListener(t, first, true)); if (!muted) play(); };
+  ["pointerdown", "keydown", "wheel", "touchstart"].forEach(t => addEventListener(t, first, { capture: true, passive: true }));
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    muted = !muted;
+    try { localStorage.setItem("shiran-bgm", muted ? "off" : "on"); } catch (er) {}
+    muted ? stop() : play();
+    setUI();
+  });
+  document.addEventListener("visibilitychange", () => { if (document.hidden) audio.pause(); else if (!muted && audio.currentTime > 0) audio.play().catch(() => {}); });
 })();
 </script>
 </html>
