@@ -559,6 +559,12 @@ footer { scroll-snap-align: end; }
 #intro .ib1 { background-image: url(wc/brush-3.webp); left: -6vw; top: 4vh; transform: rotate(-6deg); }
 #intro .ib2 { background-image: url(wc/brush-1.webp); right: -10vw; top: 18vh; transform: rotate(4deg); opacity: .4; }
 @media (prefers-reduced-motion: reduce) { .ambient .bs { animation: none; } #intro .ibrush { clip-path: none; } }
+
+/* 開場不再有照片，字不用在窄螢幕縮小（使用者 11/12：這頁突然變小） */
+.hero h1 { font-size: clamp(2.1rem, 6.4vw, 3.2rem) !important; margin: 10px 0 18px !important; }
+.hero p.lead { font-size: clamp(.98rem, 2.4vw, 1.08rem) !important; }
+.hero .actions { margin-top: 26px !important; }
+.hero .doodle { width: 56px !important; height: 40px !important; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter><symbol id="d-owner" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M19 17c0-8 10-12 18-11c8 1 11 6 8 11c-8-2-18-2-26 0z"/><path pathLength="1" d="M39 6c1-3 5-3 6 0"/><path pathLength="1" d="M22 18c-2 6-1 12 4 15c4 2 9 1 12-2c2-3 3-8 2-13"/><path pathLength="1" d="M20 18c-4 6-3 13-6 19c-1 3 0 6-1 9"/><path pathLength="1" d="M45 17c3 6 2 13 5 19c1 3 0 6 1 8"/><path pathLength="1" d="M27 23q2-2 4 0"/><path pathLength="1" d="M34 23q2-2 4 0"/><path pathLength="1" d="M30 28q2 2 4 0"/><path pathLength="1" d="M24 34c-6 3-9 10-10 18l-1 10"/><path pathLength="1" d="M41 34c6 3 9 10 10 18l1 10"/><path pathLength="1" d="M25 46l7 15 7-15z"/><path pathLength="1" d="M18 45c4 4 8 5 12 4"/><path pathLength="1" d="M47 45c-4 4-8 5-12 4"/><circle pathLength="1" cx="28" cy="42" r="3.4"/><circle pathLength="1" cx="33.5" cy="38.5" r="3.6"/><circle pathLength="1" cx="39" cy="42" r="3.4"/><circle pathLength="1" cx="31" cy="44.5" r="2.2"/><circle pathLength="1" cx="36" cy="44.5" r="2.2"/></g></symbol><symbol id="d-sprig" viewBox="0 0 56 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M6 34C18 30 30 22 50 6"/><path pathLength="1" d="M16 30c-2-6 1-10 6-11 1 5-2 9-6 11z"/><path pathLength="1" d="M24 25c5-4 10-3 12 1-4 3-9 3-12-1z"/><path pathLength="1" d="M30 20c-1-6 3-10 8-10 0 5-3 8-8 10z"/><path pathLength="1" d="M38 14c5-2 9 0 10 3-4 2-8 1-10-3z"/><circle pathLength="1" cx="50" cy="6" r="2.2"/></g></symbol><symbol id="d-chat" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M12 8h38a7 7 0 0 1 7 7v15a7 7 0 0 1-7 7H28l-9 8v-8h-7a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7z"/><path pathLength="1" d="M31 29c-6-4-9-7-9-10a4 4 0 0 1 9-1 4 4 0 0 1 9 1c0 3-3 6-9 10z"/></g></symbol><symbol id="d-tulip" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M32 48V22"/><path pathLength="1" d="M24 10c0 8 3 12 8 12s8-4 8-12l-4 3-4-6-4 6z"/><path pathLength="1" d="M32 40c-6-1-11-5-13-11 6 0 11 4 13 11z"/><path pathLength="1" d="M32 34c5-1 9-5 11-10-5 0-9 4-11 10z"/><path pathLength="1" d="M12 14l2 2M50 12l-2 3M14 26h3"/></g></symbol><symbol id="d-cal" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><rect pathLength="1" x="12" y="10" width="40" height="36" rx="5"/><path pathLength="1" d="M12 20h40M22 6v8M42 6v8"/><path pathLength="1" d="M26 32l5 5 9-10"/></g></symbol><symbol id="d-bouquet" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M20 22l12 26 12-26z"/><circle pathLength="1" cx="24" cy="16" r="5"/><circle pathLength="1" cx="34" cy="11" r="5"/><circle pathLength="1" cx="42" cy="18" r="4.5"/><path pathLength="1" d="M29 34c-5 1-8 4-8 6M35 34c5 1 8 4 8 6"/></g></symbol></defs></svg>
@@ -989,7 +995,7 @@ footer { scroll-snap-align: end; }
 /* 背景音樂：瀏覽器不允許自動播有聲音的音樂，所以等訪客第一次點畫面、滑動或按鍵才淡入。
    曲子設定在 BGM；空著時喇叭和出處都不顯示。訪客按靜音會記住（存在這台裝置）。 */
 (function () {
-  const BGM = { src: "", title: "", author: "", url: "" };  // 例：{ src: "audio/bgm.mp3", title: "曲名", author: "作者", url: "https://elements.envato.com/..." }
+  const BGM = { src: "audio/bgm.mp3", title: "Calm Relaxation Piano Guitar", author: "Praded", url: "https://app.envato.com/search/music/cdbf6a1c-9fb3-468f-b629-283ddbd90fc9" };  // 例：{ src: "audio/bgm.mp3", title: "曲名", author: "作者", url: "https://elements.envato.com/..." }
   if (!BGM.src) return;
   const btn = document.getElementById("sound"), credit = document.getElementById("bgm-credit");
   btn.hidden = false;
@@ -997,7 +1003,7 @@ footer { scroll-snap-align: end; }
   credit.innerHTML = `背景音樂：<a href="${BGM.url}" target="_blank" rel="noopener">${BGM.title}</a>／${BGM.author}，來自 Envato Elements`;
   const audio = new Audio(BGM.src); audio.loop = true; audio.preload = "none"; audio.volume = 0;
   let muted = false; try { muted = localStorage.getItem("shiran-bgm") === "off"; } catch (e) {}
-  const TARGET = 0.25;
+  const TARGET = 0.32;
   let fadeTimer;
   const fadeTo = (v, ms, after) => {
     clearInterval(fadeTimer);
