@@ -637,6 +637,21 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
   .svc h3 { font-size: 1rem; }
 }
 @media (max-width: 600px) and (max-height: 760px) { .svc { padding: 8px 8px !important; } .svc .svc-icon { width: 38px; height: 38px; } }
+
+/* 配花介面：選種類、色系、預算、取花方式、日期 → 複製訊息開 IG 私訊（使用者 11/12） */
+dialog.order { width: min(600px, calc(100vw - 24px)); }
+.order .ostep { margin-top: 14px; }
+.order .oq { font-size: .95rem; color: var(--leaf); margin: 0 0 6px; font-weight: 500; }
+.order .moods { margin: 0; }
+.order .swatches .mood { display: inline-flex; align-items: center; gap: 6px; }
+.order .swatches .mood i { width: 16px; height: 16px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgb(0 0 0 / .06); }
+.order .orow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: center; }
+.order .orow label { display: grid; gap: 4px; }
+.order input { font: inherit; font-size: .95rem; padding: .5em .8em; border-radius: 12px; border: 1px solid #e0d5c7; background: #fffdf9; color: var(--leaf); width: 100%; box-sizing: border-box; }
+.order .onote { font-size: .8rem; color: var(--stem); margin: 8px 0 0; }
+.order .opreview { margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: rgb(255 253 249 / .9); border: 1px dashed #d8c8b4; text-align: left; font-size: .9rem; line-height: 1.7; color: var(--leaf); white-space: pre-wrap; }
+.order .lang-go { display: inline-block; text-decoration: none; }
+@media (max-width: 600px) { .order .orow { grid-template-columns: 1fr; } .order .lang-in { padding: 24px 16px 20px; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter><symbol id="d-owner" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M19 17c0-8 10-12 18-11c8 1 11 6 8 11c-8-2-18-2-26 0z"/><path pathLength="1" d="M39 6c1-3 5-3 6 0"/><path pathLength="1" d="M22 18c-2 6-1 12 4 15c4 2 9 1 12-2c2-3 3-8 2-13"/><path pathLength="1" d="M20 18c-4 6-3 13-6 19c-1 3 0 6-1 9"/><path pathLength="1" d="M45 17c3 6 2 13 5 19c1 3 0 6 1 8"/><path pathLength="1" d="M27 23q2-2 4 0"/><path pathLength="1" d="M34 23q2-2 4 0"/><path pathLength="1" d="M30 28q2 2 4 0"/><path pathLength="1" d="M24 34c-6 3-9 10-10 18l-1 10"/><path pathLength="1" d="M41 34c6 3 9 10 10 18l1 10"/><path pathLength="1" d="M25 46l7 15 7-15z"/><path pathLength="1" d="M18 45c4 4 8 5 12 4"/><path pathLength="1" d="M47 45c-4 4-8 5-12 4"/><circle pathLength="1" cx="28" cy="42" r="3.4"/><circle pathLength="1" cx="33.5" cy="38.5" r="3.6"/><circle pathLength="1" cx="39" cy="42" r="3.4"/><circle pathLength="1" cx="31" cy="44.5" r="2.2"/><circle pathLength="1" cx="36" cy="44.5" r="2.2"/></g></symbol><symbol id="d-sprig" viewBox="0 0 56 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M6 34C18 30 30 22 50 6"/><path pathLength="1" d="M16 30c-2-6 1-10 6-11 1 5-2 9-6 11z"/><path pathLength="1" d="M24 25c5-4 10-3 12 1-4 3-9 3-12-1z"/><path pathLength="1" d="M30 20c-1-6 3-10 8-10 0 5-3 8-8 10z"/><path pathLength="1" d="M38 14c5-2 9 0 10 3-4 2-8 1-10-3z"/><circle pathLength="1" cx="50" cy="6" r="2.2"/></g></symbol><symbol id="d-chat" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M12 8h38a7 7 0 0 1 7 7v15a7 7 0 0 1-7 7H28l-9 8v-8h-7a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7z"/><path pathLength="1" d="M31 29c-6-4-9-7-9-10a4 4 0 0 1 9-1 4 4 0 0 1 9 1c0 3-3 6-9 10z"/></g></symbol><symbol id="d-tulip" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M32 48V22"/><path pathLength="1" d="M24 10c0 8 3 12 8 12s8-4 8-12l-4 3-4-6-4 6z"/><path pathLength="1" d="M32 40c-6-1-11-5-13-11 6 0 11 4 13 11z"/><path pathLength="1" d="M32 34c5-1 9-5 11-10-5 0-9 4-11 10z"/><path pathLength="1" d="M12 14l2 2M50 12l-2 3M14 26h3"/></g></symbol><symbol id="d-cal" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><rect pathLength="1" x="12" y="10" width="40" height="36" rx="5"/><path pathLength="1" d="M12 20h40M22 6v8M42 6v8"/><path pathLength="1" d="M26 32l5 5 9-10"/></g></symbol><symbol id="d-bouquet" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M20 22l12 26 12-26z"/><circle pathLength="1" cx="24" cy="16" r="5"/><circle pathLength="1" cx="34" cy="11" r="5"/><circle pathLength="1" cx="42" cy="18" r="4.5"/><path pathLength="1" d="M29 34c-5 1-8 4-8 6M35 34c5 1 8 4 8 6"/></g></symbol></defs></svg>
@@ -662,7 +677,7 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
       <li><a href="#process">怎麼訂</a></li>
       <li><a href="#faq">常見問題</a></li>
     </ul></nav>
-    <a class="btn nav-cta" href="#contact">預約訂花</a>
+    <a class="btn nav-cta" href="#contact" data-order>預約訂花</a>
   </div>
 </header>
 
@@ -675,6 +690,7 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
         <p>私訊 IG，會用最快速度回覆你。說一句「我想訂花」就可以開始。</p>
         <div class="actions-row">
           <a class="btn" href="https://www.instagram.com/shiran_floraflower/" target="_blank" rel="noopener">打開 IG 私訊</a>
+          <button class="btn ghost" type="button" data-order>✿ 幫我配一束</button>
         </div>
       </div>
     </div>
@@ -801,6 +817,26 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
     <div class="blooms" id="blooms" aria-live="polite"><p class="lang-empty">選好之後，這裡會出現適合的花。</p></div>
     <p class="lang-note">花語是參考，實際花材會照當季狀況跟你確認。</p>
     <button class="btn lang-go" type="button" id="lang-go" hidden>複製這段話，去 IG 私訊</button>
+  </div>
+</dialog>
+<dialog class="lang order" id="order" aria-labelledby="order-title">
+  <div class="lang-in">
+    <button class="lang-close" type="button" data-close aria-label="關閉">×</button>
+    <img class="ipaint shown" src="wc/i-bouquet.webp" alt="" width="64" height="64" decoding="async">
+    <h3 id="order-title">幫你配一束花</h3>
+    <p class="sub">選一選，最後複製訊息，貼到闆娘的 IG 私訊就好。</p>
+    <div class="ostep"><p class="oq">想要哪一種？</p><div class="moods" data-k="kind" role="group" aria-label="種類"></div></div>
+    <div class="ostep"><p class="oq">喜歡什麼色系？</p><div class="moods swatches" data-k="color" role="group" aria-label="色系"></div></div>
+    <div class="ostep"><p class="oq">預算大概多少？</p><div class="moods" data-k="budget" role="group" aria-label="預算"></div></div>
+    <div class="ostep"><p class="oq">怎麼拿？</p><div class="moods" data-k="get" role="group" aria-label="取花方式"></div></div>
+    <div class="ostep orow">
+      <label><span class="oq">哪天要？</span><input type="date" id="o-date"></label>
+      <label><span class="oq">送給誰、什麼場合（選填）</span><input type="text" id="o-who" maxlength="40" placeholder="例如：媽媽生日"></label>
+    </div>
+    <p class="onote">急單請至少提前&nbsp;3&nbsp;天訂。</p>
+    <div class="opreview" id="o-msg" aria-live="polite"></div>
+    <a class="btn lang-go" id="o-go" href="https://ig.me/m/shiran_floraflower" target="_blank" rel="noopener">複製訊息，打開 IG 私訊</a>
+    <p class="onote" id="o-done" hidden>已複製，到 IG 私訊框長按貼上、按傳送就好。</p>
   </div>
 </dialog>
 <footer>
@@ -1094,5 +1130,57 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
     setUI();
   });
   document.addEventListener("visibilitychange", () => { if (document.hidden) audio.pause(); else if (!muted && audio.currentTime > 0) audio.play().catch(() => {}); });
+})();
+</script>
+
+<script>
+/* 配花介面：網站不能替客人發私訊，所以組好訊息、複製，再打開闆娘的 IG 私訊框讓客人貼上送出 */
+(function () {
+  const dlg = document.getElementById("order"); if (!dlg) return;
+  const OPT = {
+    kind: ["鮮花花束", "永生・乾燥花禮", "人造花佈置"],
+    color: [["粉色系", "#eeb4bd"], ["白綠清新", "#cfdccb"], ["暖黃橘", "#f4c58a"], ["紫色系", "#c9b4dd"], ["紅色系", "#d9545e"], ["大地奶茶", "#cfb39a"], ["交給闆娘配", "conic-gradient(#eeb4bd, #f4c58a, #cfdccb, #c9b4dd, #eeb4bd)"]],
+    budget: ["1,000 以下", "1,000～1,500", "1,500～2,000", "2,000～3,000", "3,000 以上"],
+    get: ["自取", "外送（台中市區滿 $2000）"],
+  };
+  const pick = {};
+  dlg.querySelectorAll(".moods[data-k]").forEach(box => {
+    const k = box.dataset.k;
+    OPT[k].forEach(o => {
+      const label = Array.isArray(o) ? o[0] : o;
+      const b = document.createElement("button"); b.type = "button"; b.className = "mood"; b.setAttribute("aria-pressed", "false");
+      if (Array.isArray(o)) { const i = document.createElement("i"); i.style.setProperty("--c", o[1]); b.appendChild(i); }
+      b.appendChild(document.createTextNode(label));
+      b.addEventListener("click", () => { pick[k] = label; box.querySelectorAll(".mood").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false")); render(); });
+      box.appendChild(b);
+    });
+  });
+  const date = document.getElementById("o-date"), who = document.getElementById("o-who"), out = document.getElementById("o-msg"), go = document.getElementById("o-go"), done = document.getElementById("o-done");
+  const min = new Date(); min.setDate(min.getDate() + 3);
+  date.min = new Date(min.getTime() - min.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  const blank = "＿＿";
+  const msg = () => {
+    let d = blank;
+    if (date.value) { const [y, m, dd] = date.value.split("-").map(Number); d = `${m} 月 ${dd} 日`; }
+    const get = pick.get ? (pick.get.startsWith("外送") ? "外送" : "自取") : blank;
+    let t = `你好，我想訂${pick.kind || "花"}。\n色系：${pick.color || blank}\n預算：${pick.budget ? pick.budget + " 元" : blank}\n${d}要，${get}。`;
+    if (who.value.trim()) t += `\n送給：${who.value.trim()}`;
+    return t;
+  };
+  const render = () => { out.textContent = msg(); done.hidden = true; };
+  date.addEventListener("input", render); who.addEventListener("input", render);
+  const copy = t => {
+    const ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, t.length);
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    ta.remove();
+    if (navigator.clipboard) navigator.clipboard.writeText(t).catch(() => {});
+    return ok || !!navigator.clipboard;
+  };
+  go.addEventListener("click", () => { copy(msg()); done.hidden = false; });
+  const open = e => { if (e) e.preventDefault(); render(); if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); };
+  const close = () => { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); };
+  document.querySelectorAll("[data-order]").forEach(b => b.addEventListener("click", open));
+  dlg.querySelector("[data-close]").addEventListener("click", close);
+  dlg.addEventListener("click", e => { if (e.target === dlg) close(); });
 })();
 </script>
