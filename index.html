@@ -392,25 +392,35 @@ html.anim .owner-art.in img { -webkit-mask-size: 340%; mask-size: 340%; }
 .intro-line { font-family: var(--f-head); color: #6e645b; font-size: 1.1rem; letter-spacing: .22em; opacity: 0; }
 html.intro-on body { overflow: hidden; }
 #intro { background: linear-gradient(#f6ece4 0%, #f3efe7 45%, #e9eee4 100%); display: block; }
+
+/* 開場 v3：水彩畫圖層（tools/paint_intro.py 繪製），水彩暈開顯現 */
+#intro { background: #f8f5f0; display: block; }
+#intro .paint { position: absolute; inset: 0; -webkit-mask: url(wc/wc-mask.png) center 62% / 0% no-repeat; mask: url(wc/wc-mask.png) center 62% / 0% no-repeat; }
+#intro .lyr { position: absolute; inset: 0; background: center bottom / cover no-repeat; }
+#intro .l-bg { background-image: url(wc/intro-bg.webp); }
+#intro .l-sprite { background-image: url(wc/intro-sprite.webp); }
+#intro .l-sprout { background-image: url(wc/intro-sprout.webp); }
+#intro .l-front { background-image: url(wc/intro-front.webp); transform-origin: 50% 100%; }
+#intro.wind .l-front { animation: wcgust 1.8s cubic-bezier(.3,0,.3,1) both; }
+@keyframes wcgust { 0% { transform: skewX(0); } 30% { transform: skewX(-7deg); } 55% { transform: skewX(-2.5deg); } 75% { transform: skewX(-5deg); } 100% { transform: skewX(-1deg); } }
+#intro.wind .l-sprout { animation: wcsprout 1.8s ease-in-out both; }
+@keyframes wcsprout { 0% { transform: rotate(0); } 25% { transform: rotate(16deg); } 45% { transform: rotate(5deg); } 65% { transform: rotate(12deg); } 100% { transform: rotate(3deg); } }
+#intro .l-sprite { animation: wcbreath 2.6s ease-in-out infinite; transform-origin: 50% 85%; }
+@keyframes wcbreath { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.012); } }
+#intro .wpetal { position: absolute; left: -5vw; width: 22px; height: 22px; background: center / contain no-repeat; opacity: 0; }
+@media (prefers-reduced-motion: reduce) { #intro .paint { -webkit-mask: none; mask: none; } #intro .lyr { animation: none !important; } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter><symbol id="d-sprig" viewBox="0 0 56 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M6 34C18 30 30 22 50 6"/><path pathLength="1" d="M16 30c-2-6 1-10 6-11 1 5-2 9-6 11z"/><path pathLength="1" d="M24 25c5-4 10-3 12 1-4 3-9 3-12-1z"/><path pathLength="1" d="M30 20c-1-6 3-10 8-10 0 5-3 8-8 10z"/><path pathLength="1" d="M38 14c5-2 9 0 10 3-4 2-8 1-10-3z"/><circle pathLength="1" cx="50" cy="6" r="2.2"/></g></symbol><symbol id="d-chat" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M12 8h38a7 7 0 0 1 7 7v15a7 7 0 0 1-7 7H28l-9 8v-8h-7a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7z"/><path pathLength="1" d="M31 29c-6-4-9-7-9-10a4 4 0 0 1 9-1 4 4 0 0 1 9 1c0 3-3 6-9 10z"/></g></symbol><symbol id="d-tulip" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M32 48V22"/><path pathLength="1" d="M24 10c0 8 3 12 8 12s8-4 8-12l-4 3-4-6-4 6z"/><path pathLength="1" d="M32 40c-6-1-11-5-13-11 6 0 11 4 13 11z"/><path pathLength="1" d="M32 34c5-1 9-5 11-10-5 0-9 4-11 10z"/><path pathLength="1" d="M12 14l2 2M50 12l-2 3M14 26h3"/></g></symbol><symbol id="d-cal" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><rect pathLength="1" x="12" y="10" width="40" height="36" rx="5"/><path pathLength="1" d="M12 20h40M22 6v8M42 6v8"/><path pathLength="1" d="M26 32l5 5 9-10"/></g></symbol><symbol id="d-bouquet" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M20 22l12 26 12-26z"/><circle pathLength="1" cx="24" cy="16" r="5"/><circle pathLength="1" cx="34" cy="11" r="5"/><circle pathLength="1" cx="42" cy="18" r="4.5"/><path pathLength="1" d="M29 34c-5 1-8 4-8 6M35 34c5 1 8 4 8 6"/></g></symbol></defs></svg>
 <div class="ambient" aria-hidden="true"><span class="wc a"></span><span class="wc b"></span><span class="wc c"></span><span class="wc d"></span><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg><svg class="petal" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c4 3 6 7 6 11a6 6 0 0 1-12 0c0-4 2-8 6-11Z"/></svg></div>
 <div class="intro" id="intro" aria-hidden="true">
-  <div class="sun"></div>
+  <div class="paint">
+    <div class="lyr l-bg"></div>
+    <div class="lyr l-sprite"></div>
+    <div class="lyr l-sprout"></div>
+    <div class="lyr l-front"></div>
+  </div>
   <p class="tag">一花一苒　為時光留一束花</p>
-  <svg class="field" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMax slice">
-    <path d="M0 470C180 420 340 440 520 430S860 400 1000 440V600H0Z" fill="#dfe6d9"/>
-    <path d="M0 520C200 480 420 500 620 490S900 470 1000 500V600H0Z" fill="#e7dccd"/>
-    <g id="field-back"></g>
-    <g transform="translate(428 392) scale(1.2)"><g class="sprite">
-      <g class="sprout"><path d="M60 46C60 36 61 28 64 20" fill="none" stroke="#748979" stroke-width="5" stroke-linecap="round"/><path d="M64 22C70 8 86 4 98 8C94 20 80 28 64 22Z" fill="#748979"/><path d="M62 30C54 20 40 18 32 24C38 34 52 36 62 30Z" fill="#748979"/></g>
-      <path d="M18 128C18 76 36 46 60 46C84 46 102 76 102 128Q93 118 81 128Q70 118 60 128Q50 118 39 128Q28 118 18 128Z" fill="#748979"/>
-      <circle cx="46" cy="80" r="12" fill="#f8f5f0"/><circle cx="74" cy="80" r="12" fill="#f8f5f0"/>
-      <circle class="pupil" cx="46" cy="80" r="5.5" fill="#4f5f53"/><circle class="pupil" cx="74" cy="80" r="5.5" fill="#4f5f53"/>
-    </g></g>
-    <g id="field-front"></g>
-  </svg>
   <div class="mist m1"></div><div class="mist m2"></div><div class="mist m3"></div>
 </div>
 
@@ -734,53 +744,44 @@ html.intro-on body { overflow: hidden; }
   const done = () => { intro.remove(); root.classList.remove("intro-on"); if (window.shiranReveal) { window.shiranReveal(); window.shiranReveal = null; } };
   if (!intro.animate) { done(); return; }
   root.classList.add("intro-on");
-  // 花田：後排小花、前排大花（裝飾用，隨機但固定種子）
-  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  const COLORS = ["#f0c4c2", "#f6e1c8", "#e8b9c4", "#f3d7a6", "#ffffff", "#d9c3e3", "#f4cfc0"];
-  const NS = "http://www.w3.org/2000/svg";
-  function flower(layer, x, y, size, back) {
-    const g = document.createElementNS(NS, "g"); g.setAttribute("class", "fl" + (back ? " b" : ""));
-    const c = COLORS[Math.floor(rnd() * COLORS.length)], h = size * (2.2 + rnd() * 1.2);
-    g.innerHTML = `<path d="M${x} ${y}q${(rnd() - .5) * 8} ${-h / 2} 0 ${-h}" stroke="#9fb3a2" stroke-width="${back ? 1.4 : 2.2}" fill="none" stroke-linecap="round"/>` +
-      `<path d="M${x} ${y - h * .45}q${size * .9} ${-size * .5} ${size * 1.3} ${-size * .2}q${-size * .6} ${size * .6} ${-size * 1.3} ${size * .2}z" fill="#b5c6b6"/>` +
-      [0, 72, 144, 216, 288].map(a => `<ellipse cx="${x}" cy="${y - h - size * .55}" rx="${size * .38}" ry="${size * .6}" fill="${c}" transform="rotate(${a + rnd() * 20} ${x} ${y - h})"/>`).join("") +
-      `<circle cx="${x}" cy="${y - h}" r="${size * .28}" fill="#e9c46a"/>`;
-    layer.appendChild(g);
+  const paint = intro.querySelector(".paint"), tag = intro.querySelector(".tag"), sprout = intro.querySelector(".l-sprout");
+  // 葉子繞著莖的底部轉：依 cover 縮放換算畫上座標（畫布 1600×1000，莖底 800,641）
+  const placeSprout = () => {
+    const w = intro.clientWidth, h = intro.clientHeight, k = Math.max(w / 1600, h / 1000);
+    sprout.style.transformOrigin = `${(w - 1600 * k) / 2 + 800 * k}px ${h - 1000 * k + 641 * k}px`;
+  };
+  placeSprout();
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    tag.style.opacity = 1;
+    intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 1000, fill: "forwards" }).onfinish = done;
+    return;
   }
-  const back = document.getElementById("field-back"), front = document.getElementById("field-front");
-  for (let i = 0; i < 46; i++) flower(back, rnd() * 1000, 470 + rnd() * 50, 5 + rnd() * 4, true);
-  for (let i = 0; i < 30; i++) { const x = rnd() * 1000; if (x > 455 && x < 545 && rnd() < .7) continue; flower(front, x, 560 + rnd() * 50, 9 + rnd() * 7, false); }
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const tag = intro.querySelector(".tag");
-  if (reduce) { tag.style.opacity = 1; intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 900, fill: "forwards" }).onfinish = done; return; }
   const ease = "cubic-bezier(.16,1,.3,1)";
-  intro.querySelectorAll(".field, .sun").forEach(el => el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500, fill: "both" }));
-  tag.animate([{ opacity: 0, letterSpacing: ".6em", filter: "blur(4px)" }, { opacity: 1, letterSpacing: ".3em", filter: "blur(0)" }], { duration: 900, delay: 300, easing: ease, fill: "forwards" });
-  // 風：0.6 秒吹過來
-  const tWind = setTimeout(() => intro.classList.add("wind"), 600);
-  // 花瓣被風帶過畫面
-  const PC = ["#f0c4c2", "#f6e1c8", "#e8b9c4", "#ffffff", "#f4cfc0"];
+  // 水彩從中心暈開，把畫染出來
+  paint.animate([{ webkitMaskSize: "0%", maskSize: "0%" }, { webkitMaskSize: "420%", maskSize: "420%" }], { duration: 1200, easing: "cubic-bezier(.35,0,.25,1)", fill: "forwards" });
+  tag.animate([{ opacity: 0, letterSpacing: ".6em", filter: "blur(4px)" }, { opacity: 1, letterSpacing: ".3em", filter: "blur(0)" }], { duration: 900, delay: 450, easing: ease, fill: "forwards" });
+  const tWind = setTimeout(() => intro.classList.add("wind"), 800);
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
   for (let i = 0; i < 16; i++) {
-    const p = document.createElement("i"); p.className = "petal-f"; p.style.top = (22 + rnd() * 60) + "%"; p.style.background = PC[i % PC.length];
-    const sc = .7 + rnd() * .8; intro.appendChild(p);
-    const dy = (rnd() - .5) * 140;
+    const p = document.createElement("i"); p.className = "wpetal";
+    p.style.top = (20 + rnd() * 60) + "%"; p.style.backgroundImage = `url(wc/petal-${i % 4}.webp)`;
+    intro.appendChild(p);
+    const sc = .7 + rnd() * .9, dy = (rnd() - .5) * 160;
     p.animate([
       { opacity: 0, transform: `translate(0,0) rotate(0deg) scale(${sc})` },
       { opacity: .95, offset: .15 },
       { opacity: .9, transform: `translate(55vw, ${dy * .5 - 30}px) rotate(260deg) scale(${sc})`, offset: .55 },
       { opacity: 0, transform: `translate(118vw, ${dy}px) rotate(540deg) scale(${sc})` }
-    ], { duration: 1300 + rnd() * 600, delay: 850 + rnd() * 600, easing: "cubic-bezier(.4,.1,.6,1)", fill: "both" });
+    ], { duration: 1300 + rnd() * 600, delay: 950 + rnd() * 550, easing: "cubic-bezier(.4,.1,.6,1)", fill: "both" });
   }
-  // 霧：從兩側湧進來，再散開
-  const mists = intro.querySelectorAll(".mist");
   const pos = [["-30vmax", "30%", "-25vw"], ["40%", "45%", "25vw"], ["10%", "65%", "-10vw"]];
-  mists.forEach((m, i) => {
+  intro.querySelectorAll(".mist").forEach((m, i) => {
     m.style.left = pos[i][0]; m.style.top = pos[i][1];
     m.animate([
       { opacity: 0, transform: `translateX(${pos[i][2]}) scale(.8)` },
       { opacity: .95, transform: "translateX(0) scale(1.15)", offset: .55 },
       { opacity: 0, transform: "translateX(0) scale(1.9)" }
-    ], { duration: 1400, delay: 1500 + i * 80, easing: "ease-in-out", fill: "both" });
+    ], { duration: 1300, delay: 1600 + i * 80, easing: "ease-in-out", fill: "both" });
   });
   let ended = false;
   const finish = () => {
