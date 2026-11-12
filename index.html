@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="蒔苒花藝・手作｜台中西區的花藝工作室：鮮花花束、永生乾燥花禮、人造花佈置，客製可私訊預算與色系。">
+<meta property="og:title" content="蒔苒花藝">
+<meta property="og:description" content="一花一苒，為時光留一束花。台中西區花藝工作室。">
+<meta property="og:image" content="https://jaruexep.github.io/shiran-flora/img/07.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="ig/avatar.jpg">
+<style>body { margin: 0; } img { max-width: 100%; } [hidden] { display: none !important; }</style>
+<title>蒔苒花藝</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700&family=Noto+Sans+TC:wght@400;500&display=swap">
+<link rel="stylesheet" id="huninn" href="https://fonts.googleapis.com/css2?family=Huninn&amp;display=swap&amp;text=%E3%83%BB%E4%B8%80%E4%B9%85%E4%B9%8B%E4%BB%98%E4%BB%A5%E4%BD%88%E4%BD%A0%E4%BE%86%E4%BF%9D%E5%80%8B%E5%81%9A%E5%85%89%E5%85%AC%E5%88%B0%E5%89%8D%E5%8C%85%E5%8D%81%E5%8F%8B%E5%8F%96%E5%8F%AF%E5%8F%B8%E5%91%8A%E5%92%8C%E5%95%8F%E5%97%8E%E5%9B%9B%E5%9C%88%E5%A4%96%E5%A4%9A%E5%A8%98%E5%A9%9A%E5%AE%9A%E5%B8%B8%E5%B9%95%E5%B9%AB%E5%BE%8C%E6%80%8E%E6%83%B3%E6%88%91%E6%88%96%E6%89%8B%E6%8A%8A%E6%8B%BF%E6%8C%87%E6%8D%A7%E6%96%B0%E6%97%A5%E6%99%82%E6%9C%80%E6%9C%88%E6%9C%89%E6%9C%8B%E6%9C%9F%E6%9D%90%E6%9D%9F%E6%AD%A5%E7%82%BA%E7%85%A7%E7%8F%AD%E7%95%99%E7%9A%84%E7%A2%BA%E7%A5%9D%E7%A6%AE%E7%A7%81%E7%A8%8B%E7%AC%AC%E7%AE%97%E7%AF%80%E7%B5%A6%E7%B6%81%E7%BD%AE%E8%81%96%E8%89%B2%E8%8A%B1%E8%8B%92%E8%92%94%E8%97%9D%E8%A3%A1%E8%A3%BD%E8%A6%81%E8%A6%8B%E8%A8%82%E8%A8%8A%E8%A8%B4%E8%A9%B1%E8%AA%8D%E8%AA%95%E8%AA%AA%E8%AA%B0%E8%AA%B2%E8%B2%BB%E8%B3%80%E8%B5%B7%E8%B7%9F%E8%BF%91%E9%80%81%E9%80%B2%E9%81%8B%E9%85%8D%E9%87%91%E9%96%8B%E9%A1%8C%E9%A1%A7%E9%A9%9F%E9%BA%BC%EF%BC%8C%EF%BC%9F">
+<style>
+/* Layout: 像一本攤開的花藝作品冊。左右不對稱的開場，作品用不等高拼貼，流程是真的順序才編號。
+   標準色與字體取自 IG 大頭照：米白底＋灰綠小精靈，只有兩色；字體跟 logo 一樣走圓潤路線。 */
+:root {
+  color-scheme: light;
+  /* INS 風：暖米白＋奶茶色、細線、輕按鈕；大頭照灰綠只留在 logo 與大字點綴 */
+  --paper: #f8f5f0;      /* 暖米白，頁面底 */
+  --rice: #efe8de;       /* 奶茶米，區塊底 */
+  --brand: #6f8574;      /* 大頭照灰綠：只用在大字、數字、裝飾（3.7） */
+  --leaf: #4a4541;       /* 暖灰咖啡，內文（8.7） */
+  --stem: #6e645b;       /* 次要文字、小標（米白、奶茶底上都過 4.5） */
+  --petal: #6e645b;      /* 強調小字、連結 */
+  --btn: #e8ddd0;        /* 奶茶色按鈕底（深字 7.1） */
+  --on-btn: #4a4541;
+  --band: #efe8de;
+  --on-band: #4a4541;
+  --on-band-soft: #6e645b;
+  --blush: #efe8de;
+  --sage: #ebe4da;
+  --line: #e4ddd2;
+  --card: #fcfaf7;
+  --f-latin: "Nunito", "Huninn", system-ui, sans-serif;
+  --f-head: "Huninn", "Nunito", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --f-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--leaf); font-family: var(--f-body); font-size: 16px; line-height: 1.75; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-head); font-weight: 400; text-wrap: balance; margin: 0; letter-spacing: .06em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--petal); outline-offset: 3px; border-radius: 4px; }
+.eyebrow { font-family: var(--f-latin); font-weight: 500; font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; color: var(--petal); }
+.todo { display: inline-block; font-size: .72rem; letter-spacing: .08em; padding: 0 .5em; border: 1px dashed var(--petal); color: var(--petal); border-radius: 3px; vertical-align: middle; margin-left: .4em; line-height: 1.6; }
+
+/* 導覽 */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+header.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-head); font-size: 1.35rem; text-decoration: none; line-height: 1; letter-spacing: .08em; }
+.logo img { width: 40px; height: 40px; border-radius: 50%; display: block; flex: none; }
+.logo { white-space: nowrap; }
+@media (max-width: 480px) { .logo small { display: none; } header.nav .btn { padding: .55em 1em; font-size: .88rem; white-space: nowrap; } }
+.logo small { font-family: var(--f-latin); font-weight: 700; font-size: .7rem; letter-spacing: .18em; color: var(--stem); }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: .92rem; }
+nav a { text-decoration: none; color: var(--stem); }
+nav a:hover { color: var(--petal); }
+@media (max-width: 720px) { nav ul { display: none; } }
+.btn { display: inline-flex; align-items: center; gap: .5em; padding: .7em 1.3em; border-radius: 999px; background: var(--btn); color: var(--on-btn); text-decoration: none; font-size: .95rem; border: 0; cursor: pointer; font-family: var(--f-body); }
+.btn.ghost { background: transparent; color: var(--leaf); border: 1px solid #cdbfaf; }
+.btn:hover { filter: brightness(.97); }
+
+/* 開場 */
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-block: 56px 72px; }
+.hero h1 { font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.35; margin: 10px 0 18px; }
+.hero h1 em { font-style: normal; color: var(--brand); }
+.hero p.lead { color: var(--stem); max-width: 30em; font-size: 1.05rem; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-art { position: relative; aspect-ratio: 4/5; max-width: 100%; border-radius: 999px 999px 28px 28px; overflow: hidden; background: var(--sage); }
+.hero-art img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.hero-art figcaption { position: absolute; left: 16px; bottom: 14px; font-size: .78rem; color: var(--leaf); background: color-mix(in srgb, var(--paper) 85%, transparent); padding: 2px 10px; border-radius: 99px; }
+@media (max-width: 820px) { .hero .wrap { grid-template-columns: 1fr; padding-block: 36px 48px; } .hero-art { max-width: 420px; } }
+
+section { padding-block: 72px; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 36px; }
+.sec-head h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin-top: 4px; }
+.sec-head p { color: var(--stem); max-width: 28em; }
+
+/* 服務 */
+.services { border-top: 1px solid var(--line); }
+.svc-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.svc { padding: 28px 28px 28px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 64px 1fr; gap: 18px; min-width: 0; }
+.svc:nth-child(odd) { border-right: 1px solid var(--line); }
+.svc:nth-child(even) { padding-left: 28px; }
+.svc canvas { width: 64px; height: 64px; }
+.svc h3 { font-size: 1.2rem; }
+.svc p { color: var(--stem); font-size: .95rem; margin-top: 6px; }
+.svc .price { margin-top: 10px; font-size: .88rem; color: var(--leaf); font-variant-numeric: tabular-nums; }
+@media (max-width: 720px) { .svc-list { grid-template-columns: 1fr; } .svc:nth-child(odd) { border-right: 0; } .svc:nth-child(even) { padding-left: 0; } .svc { padding-right: 0; } }
+
+/* 作品 */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-family: var(--f-body); font-size: .88rem; padding: .35em 1em; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--stem); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--btn); color: var(--leaf); border-color: var(--btn); }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.work { margin: 0; min-width: 0; }
+.work img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 4px; background: var(--sage); }
+@media (max-width: 600px) { .gallery { gap: 3px; } .work figcaption { display: none; } }
+.work figcaption { display: flex; justify-content: space-between; gap: 8px; font-size: .85rem; padding: 8px 2px 0; color: var(--stem); }
+.work figcaption b { font-weight: 500; color: var(--leaf); }
+.gallery-note { margin-top: 20px; font-size: .85rem; color: var(--stem); }
+
+/* 訂花流程 */
+.process { background: var(--rice); border-block: 1px solid var(--line); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; list-style: none; padding: 0; margin: 0; counter-reset: s; }
+.steps li { counter-increment: s; border-top: 1px solid #cdbfaf; padding-top: 16px; min-width: 0; }
+.steps li::before { content: counter(s); font-family: var(--f-latin); font-weight: 500; font-size: 2rem; color: var(--brand); line-height: 1; display: block; margin-bottom: 10px; }
+.steps h3 { font-size: 1.05rem; }
+.steps p { color: var(--stem); font-size: .92rem; margin-top: 6px; }
+@media (max-width: 820px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .steps { grid-template-columns: 1fr; } }
+
+/* 當季花材 */
+.season .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: start; }
+.season-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.bloom { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; min-width: 0; }
+.bloom i { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+.bloom span { font-size: .95rem; }
+.bloom small { display: block; font-size: .75rem; color: var(--stem); line-height: 1.4; }
+@media (max-width: 820px) { .season .wrap { grid-template-columns: 1fr; } }
+
+/* 課程 */
+.classes .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.class { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.class .meta { font-size: .82rem; color: var(--petal); letter-spacing: .05em; }
+.class p { color: var(--stem); font-size: .93rem; flex: 1; }
+.class .row { display: flex; justify-content: space-between; font-size: .88rem; border-top: 1px solid var(--line); padding-top: 10px; font-variant-numeric: tabular-nums; }
+@media (max-width: 820px) { .classes .grid { grid-template-columns: 1fr; } }
+
+/* FAQ */
+.faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+.faq summary { cursor: pointer; font-family: var(--f-head); font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::after { content: "+"; color: var(--brand); font-size: 1.3rem; line-height: 1; }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { color: var(--stem); margin-top: 10px; max-width: 46em; }
+
+/* 聯絡 */
+.contact { background: var(--band); color: var(--on-band); }
+.contact .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+.contact h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
+.contact p { color: var(--on-band-soft); margin-top: 12px; }
+.contact .eyebrow { color: var(--on-band-soft); }
+.contact dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-size: .95rem; }
+.contact dt { color: var(--on-band-soft); }
+.contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.contact .btn { background: #fff; color: var(--leaf); border: 1px solid #e0d5c7; margin-top: 24px; }
+.copy { background: none; border: 1px solid color-mix(in srgb, var(--on-band) 45%, transparent); color: var(--on-band); border-radius: 4px; font-size: .75rem; padding: 0 .5em; margin-left: .5em; cursor: pointer; }
+@media (max-width: 820px) { .contact .wrap { grid-template-columns: 1fr; } }
+footer { background: var(--band); color: var(--on-band-soft); font-size: .8rem; }
+footer .wrap { padding-block: 28px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; }
+footer .wrap > span:last-child { text-align: right; }
+.totop { display: inline-flex; align-items: center; gap: .4em; padding: .7em 1.6em; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--on-band) 45%, transparent); color: var(--on-band); text-decoration: none; font-size: .95rem; }
+@media (max-width: 640px) { footer .wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; } footer .wrap > span:last-child { text-align: center; } .totop { order: -1; } }
+.totop:hover { background: color-mix(in srgb, var(--on-band) 12%, transparent); }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+/* 開場動畫：小精靈彈出 → 輕飄 → 飛到導覽列 logo，2.4 秒內結束，點一下可跳過 */
+.intro { position: fixed; inset: 0; z-index: 100; background: #f8f5f0; display: grid; place-items: center; cursor: pointer; }
+.intro-inner { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.intro-logo { width: 168px; height: 168px; border-radius: 50%; display: block; opacity: 0; }
+.intro-line { font-family: var(--f-head); color: #6e645b; font-size: 1.1rem; letter-spacing: .22em; opacity: 0; }
+html.intro-on body { overflow: hidden; }
+</style>
+
+<div class="intro" id="intro" aria-hidden="true"><div class="intro-inner"><img class="intro-logo" src="ig/avatar.jpg" alt="" width="168" height="168"><p class="intro-line">一花一苒　為時光留一束花</p></div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="ig/avatar.jpg" alt="" width="40" height="40">蒔苒花藝<small>SHI RAN</small></a>
+    <nav aria-label="主選單"><ul>
+      <li><a href="#services">服務</a></li>
+      <li><a href="#works">作品</a></li>
+      <li><a href="#process">怎麼訂</a></li>
+      <li><a href="#classes">課程</a></li>
+      <li><a href="#faq">常見問題</a></li>
+    </ul></nav>
+    <a class="btn" href="#contact">預約訂花</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2>想送花給誰？跟我說說</h2>
+        <p>最快的方式是 IG 私訊，通常當天會回。說一句「我想訂花」就可以開始。</p>
+        <a class="btn" href="https://www.instagram.com/shiran_floraflower/" target="_blank" rel="noopener">打開 IG 私訊</a>
+      </div>
+      <dl>
+        <dt>Instagram</dt><dd>@shiran_floraflower <button class="copy" id="copy-ig" data-copy="@shiran_floraflower">複製</button></dd>
+        <dt>LINE</dt><dd>待確認</dd>
+        <dt>工作室</dt><dd>地址待確認（採預約制）</dd>
+        <dt>營業時間</dt><dd>待確認</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="hero" style="padding-block:0">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Floral studio · Taiwan</p>
+        <h1>把想說的話，<br>包進一束 <em>花</em> 裡</h1>
+        <p class="lead">生日、求婚、開幕，還是只是想謝謝一個人。你告訴我是送給誰、想讓他有什麼感覺，我挑當季的花幫你包成一束。</p>
+        <div class="actions">
+          <a class="btn" href="https://www.instagram.com/shiran_floraflower/" target="_blank" rel="noopener">私訊 IG 訂花</a>
+          <a class="btn ghost" href="#works">先看作品</a>
+        </div>
+      </div>
+      <figure class="hero-art" style="margin:0">
+        <img src="img/07.jpg" alt="紫色洋桔梗配黃色文心蘭的情人節花束" width="900" height="1367">
+      </figure>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">What we make</p><h2>可以幫你做的花</h2></div>
+        <p>每一束都是接單後才去挑花，所以會跟照片有一點不一樣，這是花本來的樣子。</p>
+      </div>
+      <div class="svc-list">
+        <article class="svc"><canvas data-icon="0" width="128" height="128" aria-hidden="true"></canvas><div><h3>花束訂製</h3><p>生日、紀念日、告白、畢業。說預算和喜歡的顏色就好，不用懂花名。</p><p class="price">NT$ 1,200 起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><canvas data-icon="1" width="128" height="128" aria-hidden="true"></canvas><div><h3>新娘捧花・婚禮佈置</h3><p>捧花、胸花、手腕花，到簽到桌和主桌花。先約一次討論，看你的婚紗和場地再配色。</p><p class="price">捧花 NT$ 3,500 起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><canvas data-icon="2" width="128" height="128" aria-hidden="true"></canvas><div><h3>開幕・祝賀花禮</h3><p>盆花、桌花、落地花架，可以附賀卡和署名立牌，準時送到店門口。</p><p class="price">NT$ 2,000 起<span class="todo">價格待確認</span></p></div></article>
+        <article class="svc"><canvas data-icon="3" width="128" height="128" aria-hidden="true"></canvas><div><h3>花藝課程</h3><p>一次一束，從整理花材到綁好帶回家。沒碰過花也可以來，兩三個朋友一起報更好玩。</p><p class="price">NT$ 1,800 / 堂起<span class="todo">價格待確認</span></p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="works" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Recent works</p><h2>最近包的花</h2></div>
+        <div class="chips" role="group" aria-label="作品分類">
+          <button class="chip" id="chip-all" aria-pressed="true" data-f="all">全部</button>
+          <button class="chip" id="chip-bouquet" aria-pressed="false" data-f="bouquet">花束</button>
+          <button class="chip" id="chip-decor" aria-pressed="false" data-f="decor">佈置</button>
+          <button class="chip" id="chip-gift" aria-pressed="false" data-f="gift">盆花・小物</button>
+          <button class="chip" id="chip-market" aria-pressed="false" data-f="market">市集</button>
+        </div>
+      </div>
+      <div class="gallery" id="gallery"></div>
+      <p class="gallery-note">更多作品在 <a href="https://www.instagram.com/shiran_floraflower/" target="_blank" rel="noopener">@shiran_floraflower</a>。</p>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">How to order</p><h2>訂一束花，四個步驟</h2></div>
+        <p>一般花束請提前 3 天，婚禮花請提前 1 到 2 個月。<span class="todo">天數待確認</span></p>
+      </div>
+      <ol class="steps">
+        <li><h3>私訊告訴我</h3><p>送給誰、什麼場合、哪天要、預算多少。有喜歡的照片也可以一起丟過來。</p></li>
+        <li><h3>確認花材和配色</h3><p>我會依當季的花回你一個建議，顏色或大小想改都可以再調。</p></li>
+        <li><h3>付訂金保留日期</h3><p>收到訂金才算排進日期，節日前名額有限，早點說比較保險。</p></li>
+        <li><h3>取花或外送</h3><p>到工作室自取，或安排外送到指定地點，送達前會拍照給你看。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="season" id="season">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">In season · November</p>
+        <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-top:4px">十一月的花</h2>
+        <p style="color:var(--stem);margin-top:14px">天氣轉涼，花期也比較長。這個月拿得到、狀態好的花，可以當你選色的參考。</p>
+      </div>
+      <div class="season-list">
+        <div class="bloom"><i style="background:#e9b7b9"></i><span>玫瑰<small>四季都有，秋天顏色最穩</small></span></div>
+        <div class="bloom"><i style="background:#f3e6f0"></i><span>洋桔梗<small>花瓣像紙，耐放一週</small></span></div>
+        <div class="bloom"><i style="background:#c6a9d8"></i><span>紫羅蘭<small>香味很明顯</small></span></div>
+        <div class="bloom"><i style="background:#f2c48f"></i><span>康乃馨<small>暖色系的主角</small></span></div>
+        <div class="bloom"><i style="background:#f6f2ea;border:1px solid var(--line)"></i><span>棉花<small>冬天花束的質感來源</small></span></div>
+        <div class="bloom"><i style="background:#8fa79a"></i><span>尤加利葉<small>配葉，乾了也好看</small></span></div>
+        <div class="bloom"><i style="background:#b04a5a"></i><span>火龍果玫瑰<small>聖誕前很搶手</small></span></div>
+        <div class="bloom"><i style="background:#d9b26a"></i><span>小米果<small>秋天的金黃色</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="classes" id="classes" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Workshops</p><h2>一起來包花</h2></div>
+        <p>課程時間每月在 IG 公布，也可以約包班。<span class="todo">課程內容待確認</span></p>
+      </div>
+      <div class="grid">
+        <article class="class"><p class="meta">單堂體驗 · 約 2 小時</p><h3>第一束手綁花</h3><p>學怎麼整理花材、螺旋手綁和包裝，做完直接帶走。</p><div class="row"><span>NT$ 1,800</span><span>2 人成班</span></div></article>
+        <article class="class"><p class="meta">季節限定 · 約 2.5 小時</p><h3>聖誕花圈</h3><p>用松枝、棉花和乾燥果實做一個能掛到隔年的門圈。</p><div class="row"><span>NT$ 2,200</span><span>12 月開課</span></div></article>
+        <article class="class"><p class="meta">包班 · 時間另約</p><h3>朋友・公司包班</h3><p>生日派對、員工活動、閨蜜聚會，人數和主題可以一起討論。</p><div class="row"><span>依人數報價</span><span>4 人以上</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" style="padding-top:24px">
+    <div class="wrap" style="max-width:820px">
+      <div class="sec-head"><div><p class="eyebrow">Questions</p><h2>常見問題</h2></div></div>
+      <details><summary>可以指定花材嗎？</summary><p>可以，但花是跟著季節和市場進貨的，指定的花剛好沒貨時，我會先問你要換哪一種，不會自己決定。</p></details>
+      <details><summary>有外送嗎？運費怎麼算？</summary><p>有，依距離計算，下單時告訴我地址就會報給你。<span class="todo">外送範圍待確認</span></p></details>
+      <details><summary>拿到花之後要怎麼照顧？</summary><p>花束先放陰涼處，想延長花期可以拆開剪斜口插水，每天換水。乾燥花和棉花避開潮濕就好。</p></details>
+      <details><summary>節日前多久要訂？</summary><p>情人節、母親節、畢業季建議提前兩週。這幾天訂單多，越早說越能挑到你要的顏色。</p></details>
+    </div>
+  </section>
+
+</main>
+<footer><div class="wrap"><span>© 2026 蒔苒花藝 Shi Ran</span><a class="totop" href="#top" id="to-top">回到最上面 ↑</a><span>初版預覽，文字與價格以確認後為準</span></div></footer>
+
+<script>
+(function () {
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  // 可重現的亂數
+  function rng(seed) { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
+  const PALETTES = [
+    ["#e9b7b9", "#f6dfe0", "#c97a86", "#fbf4ef"],
+    ["#f3e6f0", "#d9c3e3", "#a888c2", "#fffaf6"],
+    ["#f2c48f", "#f6dcc0", "#d98c5f", "#fff6ea"],
+    ["#b04a5a", "#e7a2a9", "#7d2f3d", "#f8e9e4"],
+    ["#f8f5ee", "#e9e3d6", "#d8cfbd", "#ffffff"],
+  ];
+  function flower(ctx, x, y, r, pal, rand, kind) {
+    const petals = kind === 1 ? 5 : kind === 2 ? 12 : 8;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rand() * Math.PI);
+    for (let layer = 0; layer < (kind === 2 ? 1 : 3); layer++) {
+      const rr = r * (1 - layer * 0.28);
+      ctx.fillStyle = pal[layer % 3];
+      for (let i = 0; i < petals; i++) {
+        ctx.save(); ctx.rotate((i / petals) * Math.PI * 2 + layer * 0.4);
+        ctx.beginPath(); ctx.ellipse(0, -rr * 0.5, rr * (kind === 2 ? 0.16 : 0.34), rr * 0.55, 0, 0, Math.PI * 2);
+        ctx.globalAlpha = 0.92; ctx.fill(); ctx.restore();
+      }
+    }
+    ctx.globalAlpha = 1; ctx.fillStyle = kind === 2 ? "#d9a640" : pal[2];
+    ctx.beginPath(); ctx.arc(0, 0, r * 0.16, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+  function leaf(ctx, x, y, len, ang, color) {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(ang); ctx.fillStyle = color;
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(len * 0.35, -len * 0.18, len, 0); ctx.quadraticCurveTo(len * 0.35, len * 0.18, 0, 0); ctx.fill(); ctx.restore();
+  }
+  function bouquet(canvas, seed, opts = {}) {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = canvas.clientWidth || 300, h = opts.h || canvas.clientHeight || 300;
+    canvas.width = w * dpr; canvas.height = h * dpr; canvas.style.height = h + "px";
+    const ctx = canvas.getContext("2d"); ctx.scale(dpr, dpr);
+    const rand = rng(seed);
+    const bg = opts.bg || ["#dfe5da", "#e9dcd9", "#e4e0d3", "#d7dfd8"][seed % 4];
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
+    const cx = w / 2, cy = h * (opts.cy || 0.42), R = Math.min(w, h) * (opts.spread || 0.3);
+    // 花莖
+    ctx.strokeStyle = "#6f8a72"; ctx.lineWidth = 2;
+    for (let i = 0; i < 9; i++) { ctx.beginPath(); ctx.moveTo(cx + (rand() - .5) * R * .8, cy); ctx.lineTo(cx + (rand() - .5) * 18, h * 0.95); ctx.stroke(); }
+    // 包裝紙
+    if (opts.wrap !== false) {
+      ctx.fillStyle = opts.paper || "#f4efe6";
+      ctx.beginPath(); ctx.moveTo(cx - R * 1.15, cy + R * 0.2); ctx.lineTo(cx, h * 0.98); ctx.lineTo(cx + R * 1.15, cy + R * 0.2); ctx.lineTo(cx + R * 0.5, cy + R * 0.7); ctx.lineTo(cx - R * 0.5, cy + R * 0.7); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = css("--brand"); ctx.fillRect(cx - R * 0.32, cy + R * 1.05, R * 0.64, R * 0.08);
+    }
+    // 葉子
+    for (let i = 0; i < 14; i++) { const a = rand() * Math.PI * 2; leaf(ctx, cx + Math.cos(a) * R * .6, cy + Math.sin(a) * R * .5, R * (0.45 + rand() * .3), a, rand() > .5 ? "#7f9a85" : "#9cb3a2"); }
+    // 花
+    const pals = opts.pals || [PALETTES[seed % PALETTES.length], PALETTES[(seed + 2) % PALETTES.length], PALETTES[4]];
+    const n = opts.n || 11;
+    for (let i = 0; i < n; i++) {
+      const a = rand() * Math.PI * 2, d = Math.sqrt(rand()) * R * 0.85;
+      flower(ctx, cx + Math.cos(a) * d, cy + Math.sin(a) * d * 0.8, R * (0.2 + rand() * 0.16), pals[i % pals.length], rand, (i + seed) % 3);
+    }
+    // 小點綴
+    for (let i = 0; i < 22; i++) { const a = rand() * Math.PI * 2, d = R * (0.8 + rand() * .35); ctx.fillStyle = rand() > .5 ? "#fffaf2" : "#e8d9a8"; ctx.beginPath(); ctx.arc(cx + Math.cos(a) * d, cy + Math.sin(a) * d * .8, 2 + rand() * 3, 0, Math.PI * 2); ctx.fill(); }
+  }
+
+  const WORKS = [
+    { f: "bouquet", t: "娃娃畢業花束", s: "現貨一款一束", img: "01", w: 900, h: 1200 },
+    { f: "bouquet", t: "七夕紅玫瑰花束", s: "客製", img: "08", w: 900, h: 1125 },
+    { f: "gift", t: "史努比盆花", s: "乾燥盆花", img: "04", w: 900, h: 1125 },
+    { f: "decor", t: "公司新年佈置", s: "蛇年・捲捲草線條", img: "03", w: 900, h: 1106 },
+    { f: "bouquet", t: "週花企劃", s: "漂鳥青旅 1 樓", img: "11", w: 900, h: 1069 },
+    { f: "gift", t: "鬱金香小夜燈", s: "擺設・夜燈", img: "10", w: 900, h: 872 },
+    { f: "bouquet", t: "黑白情人節花束", s: "客製", img: "02", w: 900, h: 1500 },
+    { f: "decor", t: "外埔石頭公園餐桌佈置", s: "戶外活動", img: "05", w: 900, h: 507 },
+    { f: "bouquet", t: "白色情人節小花束", s: "現場販售", img: "06", w: 900, h: 1125 },
+    { f: "market", t: "妖怪市集", s: "擺攤日記", img: "09", w: 900, h: 1594 },
+    { f: "gift", t: "封蠟", s: "裝飾・貼紙", img: "12", w: 900, h: 1125 },
+    { f: "bouquet", t: "情人節花束", s: "洋桔梗・文心蘭", img: "07", w: 900, h: 1367 },
+  ];
+  const gallery = document.getElementById("gallery");
+  WORKS.forEach((w, i) => {
+    const fig = document.createElement("figure"); fig.className = "work"; fig.dataset.f = w.f;
+    fig.innerHTML = `<img src="img/${w.img}.jpg" alt="${w.t}" width="${w.w}" height="${w.h}" loading="lazy" decoding="async"><figcaption><b>${w.t}</b><span>${w.s}</span></figcaption>`;
+    gallery.appendChild(fig);
+  });
+  function drawAll() {
+    document.querySelectorAll("canvas[data-icon]").forEach(c => {
+      const ctx = c.getContext("2d"); ctx.clearRect(0, 0, 128, 128);
+      const i = +c.dataset.icon, rand = rng(50 + i);
+      ctx.fillStyle = css("--blush"); ctx.beginPath(); ctx.arc(64, 64, 60, 0, Math.PI * 2); ctx.fill();
+      leaf(ctx, 64, 70, 46, 0.5, "#8fa79a"); leaf(ctx, 64, 70, 40, 2.6, "#8fa79a");
+      flower(ctx, 64, 58, 34, PALETTES[[0, 4, 2, 1][i]], rand, i % 3);
+    });
+  }
+  drawAll();
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawAll, 150); });
+  if (document.fonts) document.fonts.ready.then(drawAll);
+
+  document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    const f = b.dataset.f;
+    document.querySelectorAll(".work").forEach(w => { w.hidden = !(f === "all" || w.dataset.f === f); });
+    drawAll();
+  }));
+
+  const goTop = e => {
+    e.preventDefault();
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  };
+  document.getElementById("to-top").addEventListener("click", goTop);
+
+  document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", () => {
+    const t = b.dataset.copy;
+    const done = () => { b.textContent = "已複製"; setTimeout(() => b.textContent = "複製", 1500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(done).catch(() => { const r = document.createRange(); r.selectNodeContents(b.previousSibling || b.parentNode); getSelection().removeAllRanges(); getSelection().addRange(r); });
+  }));
+})();
+</script>
+
+<script>
+(function () {
+  const intro = document.getElementById("intro"); if (!intro) return;
+  const root = document.documentElement, logo = intro.querySelector(".intro-logo"), line = intro.querySelector(".intro-line");
+  let seen = false;
+  try { seen = sessionStorage.getItem("shiran-intro") === "1"; sessionStorage.setItem("shiran-intro", "1"); } catch (e) {}
+  const done = () => { intro.remove(); root.classList.remove("intro-on"); };
+  if (seen || !intro.animate) { done(); return; }
+  root.classList.add("intro-on");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    logo.style.opacity = 1; line.style.opacity = 1;
+    intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, delay: 700, fill: "forwards" }).onfinish = done;
+    return;
+  }
+  logo.animate([{ transform: "scale(.4)", opacity: 0 }, { transform: "scale(1.08)", opacity: 1, offset: .7 }, { transform: "scale(1)", opacity: 1 }], { duration: 550, easing: "ease-out", fill: "both" });
+  logo.animate([{ translate: "0 0" }, { translate: "0 -10px" }, { translate: "0 0" }], { duration: 1000, delay: 550, easing: "ease-in-out" });
+  line.animate([{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }], { duration: 500, delay: 500, easing: "ease-out", fill: "forwards" });
+  let ended = false;
+  const fly = () => {
+    if (ended) return; ended = true;
+    const t = document.querySelector(".logo img").getBoundingClientRect(), r = logo.getBoundingClientRect();
+    const dx = t.left + t.width / 2 - (r.left + r.width / 2), dy = t.top + t.height / 2 - (r.top + r.height / 2), k = t.width / r.width;
+    line.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: "forwards" });
+    logo.animate([{ transform: "none", opacity: 1 }, { transform: `translate(${dx}px, ${dy}px) scale(${k})`, opacity: 1 }], { duration: 700, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" });
+    intro.animate([{ backgroundColor: "rgb(248 245 240 / 1)" }, { backgroundColor: "rgb(248 245 240 / 0)" }], { duration: 500, delay: 250, fill: "forwards" });
+    setTimeout(done, 800);
+  };
+  const timer = setTimeout(fly, 1600);
+  intro.addEventListener("click", () => {
+    if (ended) return; ended = true; clearTimeout(timer);
+    intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: "forwards" }).onfinish = done;
+  });
+})();
+</script>
+</html>
