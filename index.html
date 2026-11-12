@@ -658,10 +658,9 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
       <div>
         <img class="owner-paint" src="wc/owner-icon.webp" alt="闆娘抱著一束花的水彩小圖" width="96" height="96" decoding="async"><p class="eyebrow">Get in touch</p>
         <h2>想送花給誰？跟我說說</h2>
-        <p>最快的方式是 IG 私訊，通常當天會回。說一句「我想訂花」就可以開始。</p>
+        <p>私訊 IG，會用最快速度回覆你。說一句「我想訂花」就可以開始。</p>
         <div class="actions-row">
           <a class="btn" href="https://www.instagram.com/shiran_floraflower/" target="_blank" rel="noopener">打開 IG 私訊</a>
-          <button class="btn lang-open" type="button" id="lang-open"><span class="spark" aria-hidden="true">✿</span> 不知道送什麼花？點我</button>
         </div>
       </div>
     </div>
@@ -1042,7 +1041,7 @@ html.anim .in .ipaint, html.anim .in.ipaint, html.anim .ipaint.in { -webkit-mask
   });
   const open = () => { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); };
   const close = () => { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); };
-  document.getElementById("lang-open").addEventListener("click", open);
+  document.getElementById("lang-open")?.addEventListener("click", open);
   document.getElementById("lang-close").addEventListener("click", close);
   dlg.addEventListener("click", e => { if (e.target === dlg) close(); });
   go.addEventListener("click", () => {
