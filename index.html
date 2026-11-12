@@ -565,6 +565,14 @@ footer { scroll-snap-align: end; }
 .hero p.lead { font-size: clamp(.98rem, 2.4vw, 1.08rem) !important; }
 .hero .actions { margin-top: 26px !important; }
 .hero .doodle { width: 56px !important; height: 40px !important; }
+
+/* 聯絡資料移到頁尾（使用者 11/12） */
+footer .foot-info { display: block !important; text-align: center; padding-block: 36px 4px !important; }
+footer .foot-info .eyebrow { color: var(--on-band-soft); margin-bottom: 12px; }
+.contact-dl { display: inline-grid; grid-template-columns: auto auto; gap: 10px 22px; margin: 0; font-size: .92rem; text-align: left; color: var(--on-band); }
+.contact-dl dt { color: var(--on-band-soft); }
+.contact-dl dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.contact-dl .map { display: block; width: fit-content; margin: 6px 0 0; text-decoration: none; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter><symbol id="d-owner" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M19 17c0-8 10-12 18-11c8 1 11 6 8 11c-8-2-18-2-26 0z"/><path pathLength="1" d="M39 6c1-3 5-3 6 0"/><path pathLength="1" d="M22 18c-2 6-1 12 4 15c4 2 9 1 12-2c2-3 3-8 2-13"/><path pathLength="1" d="M20 18c-4 6-3 13-6 19c-1 3 0 6-1 9"/><path pathLength="1" d="M45 17c3 6 2 13 5 19c1 3 0 6 1 8"/><path pathLength="1" d="M27 23q2-2 4 0"/><path pathLength="1" d="M34 23q2-2 4 0"/><path pathLength="1" d="M30 28q2 2 4 0"/><path pathLength="1" d="M24 34c-6 3-9 10-10 18l-1 10"/><path pathLength="1" d="M41 34c6 3 9 10 10 18l1 10"/><path pathLength="1" d="M25 46l7 15 7-15z"/><path pathLength="1" d="M18 45c4 4 8 5 12 4"/><path pathLength="1" d="M47 45c-4 4-8 5-12 4"/><circle pathLength="1" cx="28" cy="42" r="3.4"/><circle pathLength="1" cx="33.5" cy="38.5" r="3.6"/><circle pathLength="1" cx="39" cy="42" r="3.4"/><circle pathLength="1" cx="31" cy="44.5" r="2.2"/><circle pathLength="1" cx="36" cy="44.5" r="2.2"/></g></symbol><symbol id="d-sprig" viewBox="0 0 56 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M6 34C18 30 30 22 50 6"/><path pathLength="1" d="M16 30c-2-6 1-10 6-11 1 5-2 9-6 11z"/><path pathLength="1" d="M24 25c5-4 10-3 12 1-4 3-9 3-12-1z"/><path pathLength="1" d="M30 20c-1-6 3-10 8-10 0 5-3 8-8 10z"/><path pathLength="1" d="M38 14c5-2 9 0 10 3-4 2-8 1-10-3z"/><circle pathLength="1" cx="50" cy="6" r="2.2"/></g></symbol><symbol id="d-chat" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M12 8h38a7 7 0 0 1 7 7v15a7 7 0 0 1-7 7H28l-9 8v-8h-7a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7z"/><path pathLength="1" d="M31 29c-6-4-9-7-9-10a4 4 0 0 1 9-1 4 4 0 0 1 9 1c0 3-3 6-9 10z"/></g></symbol><symbol id="d-tulip" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M32 48V22"/><path pathLength="1" d="M24 10c0 8 3 12 8 12s8-4 8-12l-4 3-4-6-4 6z"/><path pathLength="1" d="M32 40c-6-1-11-5-13-11 6 0 11 4 13 11z"/><path pathLength="1" d="M32 34c5-1 9-5 11-10-5 0-9 4-11 10z"/><path pathLength="1" d="M12 14l2 2M50 12l-2 3M14 26h3"/></g></symbol><symbol id="d-cal" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><rect pathLength="1" x="12" y="10" width="40" height="36" rx="5"/><path pathLength="1" d="M12 20h40M22 6v8M42 6v8"/><path pathLength="1" d="M26 32l5 5 9-10"/></g></symbol><symbol id="d-bouquet" viewBox="0 0 64 52"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)"><path pathLength="1" d="M20 22l12 26 12-26z"/><circle pathLength="1" cx="24" cy="16" r="5"/><circle pathLength="1" cx="34" cy="11" r="5"/><circle pathLength="1" cx="42" cy="18" r="4.5"/><path pathLength="1" d="M29 34c-5 1-8 4-8 6M35 34c5 1 8 4 8 6"/></g></symbol></defs></svg>
@@ -607,12 +615,6 @@ footer { scroll-snap-align: end; }
           <button class="btn lang-open" type="button" id="lang-open"><span class="spark" aria-hidden="true">✿</span> 不知道送什麼花？點我</button>
         </div>
       </div>
-      <dl>
-        <dt>Instagram</dt><dd>@shiran_floraflower <button class="copy" id="copy-ig" data-copy="@shiran_floraflower">複製</button></dd>
-        <dt>LINE</dt><dd>待確認</dd>
-        <dt>工作室</dt><dd>台中市西區公益路&nbsp;201&nbsp;號&nbsp;1&nbsp;樓<a class="copy map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%85%AC%E7%9B%8A%E8%B7%AF201%E8%99%9F" target="_blank" rel="noopener">地圖</a></dd>
-        <dt>營業時間</dt><dd>待確認</dd>
-      </dl>
     </div>
   </section>
 
@@ -752,7 +754,16 @@ footer { scroll-snap-align: end; }
     <button class="btn lang-go" type="button" id="lang-go" hidden>複製這段話，去 IG 私訊</button>
   </div>
 </dialog>
-<footer><div class="wrap"><span>© 2026 蒔苒花藝 Shi Ran</span><a class="totop" href="#top" id="to-top">回到最上面 ↑</a><span>初版預覽，文字與價格以確認後為準<small class="bgm-credit" id="bgm-credit" hidden></small></span></div></footer>
+<footer>
+  <div class="wrap foot-info"><p class="eyebrow">Contact</p>
+      <dl class="contact-dl">
+        <dt>Instagram</dt><dd>@shiran_floraflower <button class="copy" id="copy-ig" data-copy="@shiran_floraflower">複製</button></dd>
+        <dt>LINE</dt><dd>待確認</dd>
+        <dt>工作室</dt><dd>台中市西區公益路&nbsp;201&nbsp;號&nbsp;1&nbsp;樓<a class="copy map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%85%AC%E7%9B%8A%E8%B7%AF201%E8%99%9F" target="_blank" rel="noopener">地圖</a></dd>
+        <dt>營業時間</dt><dd>待確認</dd>
+      </dl>
+  </div>
+  <div class="wrap"><span>© 2026 蒔苒花藝 Shi Ran</span><a class="totop" href="#top" id="to-top">回到最上面 ↑</a><span>初版預覽，文字與價格以確認後為準<small class="bgm-credit" id="bgm-credit" hidden></small></span></div></footer>
 
 <script>
 (function () {
